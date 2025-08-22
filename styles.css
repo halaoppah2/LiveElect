@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.navbar-nav {
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    font-size: 13pt !important;
+    color: rgb(2, 2, 88) !important;
+
+}
+
+a:hover{
+    color: chocolate !important;
+    font-weight: bold !important;
+    border-bottom: 3px solid chocolate;
+    transition: all 0.6s;
+}
+
+.active {
+    color: chocolate !important;
+    font-weight: bold !important;
+}
+
+
+
+@media screen and (max-width: 787px){
+    .navbar-nav {
+        gap: 5px; /* Adjust the value for more or less space */
+    }
+
+}
