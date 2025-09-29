@@ -38,6 +38,11 @@ body {
     font-size: 14pt;
 }
 
+.card-body{
+      background: linear-gradient(45deg, rgb(255, 137, 2), gold);
+}
+
+
 
 /* footer{
     display: flex;
@@ -102,5 +107,14 @@ body {
         font-size: 10px;
         gap: 2px;
     }
+
+    .card{
+        margin-bottom: 10px;
+    }
+
+    .row{
+        row-gap: 8px;
+    }
+
 
 }
