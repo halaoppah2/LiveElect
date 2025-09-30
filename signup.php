@@ -8,7 +8,7 @@
     <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
     <script src="https://kit.fontawesome.com/8161412aed.js" crossorigin="anonymous"></script>
     <link rel="icon" href="images/logo.jpg">
-    <title>Login</title>
+    <title>Signup</title>
 </head>
 
 <body>
@@ -56,11 +56,9 @@
 
                     <form action="signup_process.php" method="POST" class="mx-auto" style="width: 70%;">
 
-                        <input type="hidden" name="source" value="signup">
-
                         <div class="mb-3">
-                            <label for="name" class="form-label" style="font-weight: bold;">Name</label>
-                            <input type="#" class="form-control" id="id" name="name" placeholder="Enter name">
+                            <label for="email" class="form-label" style="font-weight: bold;">Email</label>
+                            <input type="email" class="form-control" id="id" name="email" placeholder="Enter name">
                         </div>
 
                         <div class="mb-3">

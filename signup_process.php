@@ -1,15 +1,21 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = trim ($_POST['name'] ??  ' ');
-    $id = trim ($_POST['id'] ??  ' ');
-    $password = trim ($_POST['password'] ??  ' ');
-    $confirm_password = trim ($_POST['con_password'] ??  ' ');
+    $email = trim ($_POST['email'] ??  '');
+    $id = trim ($_POST['id'] ??  '');
+    $password = trim ($_POST['password'] ??  '');
+    $confirm_password = trim ($_POST['con_password'] ??  '');
 
      // form validation
-    if (empty($name) && empty($id) && empty($password)) {
+    if (empty($email) || empty($id) || empty($password) || empty($confirm_password)) {
         echo "<script>alert('All fields are required.'); window.history.back();</script>";
         exit;
+    }
 
+    //password length validation
+    if (strlen($password) < 8) {
+        echo "<script>alert('Password must not be less than 8 characters long'); window.history.back();</script>";
+        exit;
+    }
 
     // Check if password and confirm password match
     if ($password !== $confirm_password) {
@@ -32,7 +38,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->close();
 
     if ($count > 0) {
-        echo "<script>alert('ID already exist. Cannot signup twice'); window.history.back();</script>";
+        echo "<script>alert('ID already exist.'); window.history.back();</script>";
+        exit;
+    }
+
+    // Check if email already exists
+    $stmt = $conn->prepare("SELECT COUNT(*) FROM signup WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $stmt->bind_result($count);
+    $stmt->fetch();
+    $stmt->close();
+
+    if ($count > 0) {
+        echo "<script>alert('Email already exist.'); window.history.back();</script>";
         exit;
     }
 
@@ -40,8 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Store user information in the database
-    $stmt = $conn->prepare("INSERT INTO signup (name, id, passwd) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $name, $id, $hashed_password);
+    $stmt = $conn->prepare("INSERT INTO signup (email, id, passwd) VALUES (?, ?, ?)");
+    $stmt->bind_param("sss", $email, $id, $hashed_password);
     if ($stmt->execute()) {
         echo "<script>alert('Signup successful.'); window.location.href = 'login.php';</script>";
     } else {
@@ -49,7 +68,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     $stmt->close();
     $conn->close();
-}
-
 }
 ?>

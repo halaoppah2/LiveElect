@@ -76,11 +76,9 @@
 
                     <form action="login_process.php" method="POST" class="mx-auto" style="width: 70%;">
 
-                        <input type="hidden" name="source" value="login">
-
                         <div class="mb-3">
                             <label for="id" class="form-label" style="font-weight: bold;">ID</label>
-                            <input type="#" class="form-control" id="id" name="id" placeholder="Enter ID">
+                            <input type="text" class="form-control" id="id" name="id" placeholder="Enter ID">
                         </div>
 
                         <div class="mb-3">
@@ -91,9 +89,7 @@
                         <!-- <div class="d-grid gap"></div> -->
 
                         <input type="submit" value="Login" class="btn btn-warning btn-block mt-3" style="font-weight: bold;"></input>
-
-                        <input type="submit" value="Forget Password" name="forgetpass" class="btn btn-danger btn-block ms-5 mt-3" style="font-weight: bold;"></input>
-
+        
                         <div class="d-flex mt-5">
                             <p class="mb-1">Don’t have an account?</p>
 
@@ -101,6 +97,8 @@
                         </div>
 
                     </form>
+
+                     <a href="forget.php"><input type="submit" value="Forget Password" name="forgetpass" class="btn btn-danger btn-block" style="font-weight: bold; margin-top: -238px; margin-left: 230px;"></input></a>
 
                     <!-- end of form -->
                  
