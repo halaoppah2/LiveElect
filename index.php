@@ -34,7 +34,7 @@
 
                         <li class="nav-item"><a href="index.php" class="nav-link active1">Home</a></li>
                         <li class="nav-item"><a href="about_us.php" class="nav-link">About Us</a></li>
-                        <li class="nav-item"><a href="#feature" class="nav-link">Voting</a></li>
+                        <li class="nav-item"><a href="voting.php" class="nav-link">Voting</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">Analytics</a></li>
                         <li class="nav-item"><a href="login.php" class="nav-link">Login</a></li>
                         <li class="nav-item"><a href="#contact" class="nav-link">Contact Us</a></li>

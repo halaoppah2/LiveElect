@@ -53,6 +53,8 @@
 
                     <form action="password_reset.php" method="POST" class="mx-auto" style="width: 60%;">
 
+                        <input type="hidden" name="token" value="<?php echo htmlspecialchars($_GET['token'] ?? ''); ?>">
+
                         <div class="mb-3">
                             <label for="password" class="form-label" style="font-weight: bold;">New Password</label>
                             <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
