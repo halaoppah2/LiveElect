@@ -38,13 +38,11 @@
         </nav>
     <!-- end of nav -->
 
-    <!-- signup container -->
+        <!-- voting container -->
 
         <div class="container" style="width: 95%;">
 
             <div class="container">
-
-            <h2 class="text-center mb-4" style="font-weight: bold; color: black;">Voting Page</h2>
 
                 <p>Welcome to the voting page. Here you can cast your vote for the candidates of your choice. Please ensure that you have registered and logged in to participate in the voting process.</p>
                 
@@ -54,7 +52,7 @@
 
         </div>
 
-         <!-- voting container -->
+         <!-- end on voting container -->
 
         <!-- first row -->
         <div class="container" style="width: 85%;">
@@ -70,7 +68,9 @@
                     <div class="card-body text-center">
                         <p class="card-text" style="font-weight: bold;">UCC SRC Election 2025/2026</p>
 
-                        <a href="voting_form.php" class="btn btn-primary">Vote Now</a>
+                        <a href="login.php" class="btn btn-primary">Vote Now</a>
+
+                        <a href="voting_form.php" class="btn btn-outline-danger" style="font-weight:bold;">View Aspirants</a>
 
                     </div>
                 </div>
@@ -86,7 +86,9 @@
                         <p class="card-text" style="font-weight: bold;">Nursing Students’ Association
                         (NUGS-UCC Local) Election 2025</p>
 
-                        <a href="voting_form.php" class="btn btn-primary">Vote Now</a>
+                        <a href="login.php" class="btn btn-primary">Vote Now</a>
+
+                        <a href="voting_form.php" class="btn btn-outline-danger" style="font-weight:bold;">View Aspirants</a>
 
                     </div>
                 </div>
@@ -110,7 +112,9 @@
                     <div class="card-body text-center">
                         <p class="card-text" style="font-weight: bold;">OLA SRC Election 2025/2026</p>
 
-                        <a href="voting_form.php" class="btn btn-primary">Vote Now</a>
+                        <a href="login.php" class="btn btn-primary">Vote Now</a>
+
+                        <a href="voting_form.php" class="btn btn-outline-danger" style="font-weight:bold;">View Aspirants</a>
 
                     </div>
                 </div>
@@ -125,7 +129,9 @@
                     <div class="card-body text-center">
                         <p class="card-text" style="font-weight: bold;">Graduate Students’ Association of Ghana (GRASAG) – UCC Chapter Election 2025</p>
 
-                        <a href="voting_form.php" class="btn btn-primary">Vote Now</a>
+                        <a href="login.php" class="btn btn-primary">Vote Now</a>
+
+                        <a href="voting_form.php" class="btn btn-outline-danger" style="font-weight:bold;">View Aspirants</a>
 
                     </div>
                 </div>
