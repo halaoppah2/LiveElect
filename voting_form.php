@@ -32,7 +32,7 @@
                     <ul class="navbar-nav d-flex justify-content w-100">
                         <li class="nav-item"><a href="index.php" class="nav-link ">Home</a></li>
                         <li class="nav-item"><a href="about_us.php" class="nav-link">About Us</a></li>
-                        <li class="nav-item"><a href="login.php" class="nav-link active1">Voting</a></li>
+                        <li class="nav-item"><a href="login.php" class="nav-link active1">Login</a></li>
                     </ul>
 
                 </div>
@@ -56,9 +56,9 @@
 
          <!-- end of voting_form container -->
 
-        <!-- first row -->
+        
         <div class="container" style="width: 85%;">
-
+            <!-- first row -->
             <div class="row">
 
               <div class="text-center">
@@ -66,7 +66,7 @@
                 </div>
             
             <!-- first card -->
-            <div class="col-sm-4 mb-3 mb-sm-0 d-flex justify-content-center">
+            <div class="col-sm-4 mb-3 mb-sm-0">
 
                 <div class="card shadow" style="width: 18rem;">
 
@@ -80,7 +80,7 @@
             </div>
 
             <!-- second card -->
-            <div class="col-sm-4 mb-3 mb-sm-0 d-flex justify-content-center">
+            <div class="col-sm-4 mb-3 mb-sm-0">
 
                 <div class="card shadow" style="width: 18rem;">
 
@@ -94,7 +94,7 @@
             </div>
 
             <!-- third card -->
-            <div class="col-sm-4 mb-3 mb-sm-0 d-flex justify-content-center">
+            <div class="col-sm-4 mb-3 mb-sm-0">
 
                 <div class="card shadow" style="width: 18rem;">
 
@@ -110,16 +110,16 @@
         </div>
         <!-- end of first row  -->
 
-          <div class="text-center mt-4 mb-4">
-                    <h4>Treasurer</h4>
-                </div>
+            <div class="text-center mt-4 mb-4">
+                <h4>Treasurer</h4>
+            </div>
 
         <!-- seccond row -->
         <div class="container mt-4" style="width: 85%;">
 
-            <div class="row">
+            <div class="row d-flex justify-content-center">
 
-                <div class="col-sm-4 mb-3 mb-sm-0 d-flex justify-content-center">
+                <div class="col-sm-4 mb-3 mb-sm-0">
 
                     <div class="card shadow" style="width: 18rem;">
 
@@ -132,10 +132,9 @@
                     </div>
                 </div>
 
-                <div class="col-sm-4 mb-3 mb-sm-0 d-flex justify-content-center">
+                <div class="col-sm-4 mb-3 mb-sm-0">
 
-                    <div class="card shadow" style="width: 20rem;">
-
+                    <div class="card shadow" style="width: 18rem;">
                         <img src="images/akosua.jpg" class="card-img-top" alt="akosua">
 
                         <div class="card-body text-center">
@@ -144,22 +143,56 @@
                     </div>
                 </div>
 
-                <div class="col-sm-4 mb-3 mb-sm-0 d-flex justify-content-center">
+                <div class="col-sm-4 mb-3 mb-sm-0">
 
-                    <div class="card shadow" style="width: 20rem;">
-
-                        <img src="images/grasag.jpg" class="card-img-top" alt="grasag_logo">
+                    <div class="card shadow" style="width: 18rem;">
+                        <img src="images/yaa.jpg" class="card-img-top" alt="yaa">
 
                         <div class="card-body text-center">
-                            <p class="card-text" style="font-weight: bold;">Graduate Students’ Association of Ghana (GRASAG) – UCC Chapter Election 2025</p>
+                            <p class="card-text" style="font-weight: bold; font-size: 14pt;">Yaa Mansa</p>
                         </div>
                     </div>
                 </div>
 
             </div>
-            
+
         </div>
-        <!-- end of seccond row  -->    
+        <!-- end of seccond row  -->
+         
+            <div class="text-center mt-4 mb-4">
+                <h4>Secretary</h4>
+            </div>
+
+        <!-- third row -->
+        <div class="container mt-4" style="width: 85%;">
+
+            <div class="row d-flex justify-content-center">
+
+                <div class="col-sm-4 mb-3 mb-sm-0">
+
+                    <div class="card shadow" style="width: 18rem;">
+                        <img src="images/ayele.jpg" class="card-img-top" alt="ayele">
+
+                        <div class="card-body text-center">
+                            <p class="card-text" style="font-weight: bold; font-size: 14pt;">Naa Ayele</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 mb-3 mb-sm-0">
+
+                    <div class="card shadow" style="width: 18rem;">
+                        <img src="images/esi.jpg" class="card-img-top" alt="esi">
+
+                        <div class="card-body text-center">
+                            <p class="card-text" style="font-weight: bold; font-size: 14pt;">Esi Maame</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
 
     <!-- end of voting_form container -->
       

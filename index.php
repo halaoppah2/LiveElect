@@ -15,8 +15,7 @@
 
     <div class="container bg-white my-5 p-4 shadow-lg rounded">
 
-    <!-- nav -->
-
+        <!-- nav -->
         <nav class="navbar navbar-expand-sm mt-5">
             <div class="container-fluid">
 
@@ -44,10 +43,9 @@
                 </div>
             </div>
         </nav>
-    <!-- end of nav -->
+        <!-- end of nav -->
 
         <!-- carousel -->
-
         <div id="demo" class="carousel slide" data-bs-ride="carousel">
 
             <div class="carousel-indicators">
@@ -306,14 +304,15 @@
 
     <!-- end of container -->
     
+    <?php
+        echo "
+        <script>
+        let date = new Date();
+        let year = date.getFullYear();
+        document.getElementById('year').innerHTML = year;
+        </script>";
+    ?>
 
-    <script>
 
-    let date = new Date();
-    year = date.getFullYear();
-    document.getElementById('year').innerHTML = year;
-
-    </script>
-    
 </body>
 </html>

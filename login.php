@@ -1,3 +1,12 @@
+<?php
+$voting_open = true; // Change to false if voting is closed
+
+if (!$voting_open) {
+    echo "<script>alert('Voting is closed.'); window.location.href='index.php';</script>";
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,20 +59,18 @@
 
                     <div class="d-block mx-auto" >
 
-                         <img src="images/logo.jpg" alt="logo" width="200" class="img-fluid d-block mx-auto">
+                        <img src="images/logo.jpg" alt="logo" width="200" class="img-fluid d-block mx-auto">
 
-                          <div class="shadow" style="background-color: white; height: 30px; width: 220px; margin: -15px auto; border-radius: 0 0 10px 10px"></div>
+                        <div class="shadow" style="background-color: white; height: 30px; width: 220px; margin: -15px auto; border-radius: 0 0 10px 10px"></div>
 
                     </div>
 
-                        <div class="text-center mt-3" style="font-size: 60pt; line-height: 1.0; font-weight:bold">
+                        <div class="text-center mt-3"           style="font-size: 60pt; line-height: 1.0; font-weight:bold">
                             <p>LIVE<br>ELECT</p>
                         </div>
 
                        <i class="fa-solid fa-check-to-slot" style="color: white; font-size: 80pt; display: flex; justify-content: center;"></i>
-
                 </div>
-
             </div>
 
             <div class="col-sm-8 p-4" style="background-color: lightgray;">
@@ -98,7 +105,7 @@
 
                     </form>
 
-                     <a href="forget.php"><input type="submit" value="Forget Password" name="forgetpass" class="btn btn-danger btn-block" style="font-weight: bold; margin-top: -238px; margin-left: 230px;"></input></a>
+                     <a href="forget.php"><input type="submit" value="Forget Password" name="forgetpass" class="btn btn-danger btn-block" style="font-weight: bold; margin-top: -238px; margin-left: 180px;"></input></a>
 
                     <!-- end of form -->
                  

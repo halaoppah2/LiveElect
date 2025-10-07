@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (password_verify($password, $hashed_password)) {
-        echo "<script>alert('Login successful.'); window.location.href='index.php';</script>";
+        echo "<script>alert('Login successful.'); window.location.href='president.php';</script>";
     } else {
         echo "<script>alert('Invalid password.'); window.history.back();</script>";
     }
