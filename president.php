@@ -1,3 +1,16 @@
+ <?php
+    session_start();
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['selectedCandidate'])) {
+    $_SESSION['president_vote'] = $_POST['selectedCandidate'];
+    header("Location: treasurer.php");
+    exit();
+    }
+
+    // Restore selected vote (if any)
+    $selectedCandidate = isset($_SESSION['president_vote']) ? $_SESSION['president_vote'] : '';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -117,7 +130,6 @@
         </div>
         <!-- end of third candidate -->
 
-
         <!-- end of voting container -->
 
          <!-- Hidden field just to keep track -->
@@ -145,24 +157,18 @@
                 }
             </script>';
 
-         echo '
-            <div class="d-flex justify-content-center mt-4" style="gap: 10px;"> 
-                <div class="text-center">
-                    <a href="treasurer.php" class="btn btn-dark btn-sm">
+            echo '
+             <div class="d-flex justify-content-center mt-4" style="gap: 10px;"> 
+                <form method="POST" action="">
+                    <input type="hidden" name="selectedCandidate" id="selectedCandidate">
+                    <button type="submit" class="btn btn-dark btn-sm">
                         Next <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
+                    </button>
+                </form>
             </div>';
         ?>
       
     </div>
-
     <!-- end of container -->
-    
 </body>
-
-
-</script>
-
 </html>

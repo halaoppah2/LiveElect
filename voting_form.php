@@ -18,7 +18,6 @@
     <div class="container bg-white my-5 p-4 shadow-lg rounded">
 
         <!-- nav -->
-
         <nav class="navbar navbar-expand-sm mt-5">
             
             <div class="container-fluid">
@@ -38,10 +37,9 @@
                 </div>
             </div>
         </nav>
-    <!-- end of nav -->
+        <!-- end of nav -->
 
         <!-- voting_form container -->
-
         <div class="container" style="width: 95%;">
 
             <div class="container">
@@ -53,15 +51,13 @@
             <hr style="width: 70%;" class="mx-auto mt-4 mb-4">
 
         </div>
-
          <!-- end of voting_form container -->
-
         
         <div class="container" style="width: 85%;">
             <!-- first row -->
             <div class="row">
 
-              <div class="text-center">
+                <div class="text-center">
                     <h4>President</h4>
                 </div>
             
