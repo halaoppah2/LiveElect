@@ -1,10 +1,11 @@
 <?php
-$voting_open = true; // Change to false if voting is closed
 
-if (!$voting_open) {
-    echo "<script>alert('Voting is closed.'); window.location.href='index.php';</script>";
-    exit;
-}
+    $voting_open = true; // Change to false if voting is closed
+
+    if (!$voting_open) {
+        echo "<script>alert('Voting is closed.'); window.location.href='index.php';</script>";
+        exit;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -105,7 +106,7 @@ if (!$voting_open) {
 
                     </form>
 
-                     <a href="forget.php"><input type="submit" value="Forget Password" name="forgetpass" class="btn btn-danger btn-block" style="font-weight: bold; margin-top: -238px; margin-left: 180px;"></input></a>
+                     <a href="forget.php"><input type="submit" value="Forget Password" name="forgetpass" class="btn btn-danger btn-block" style="font-weight: bold; margin-top: -240px; margin-left: 180px;"></input></a>
 
                     <!-- end of form -->
                  

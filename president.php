@@ -1,4 +1,4 @@
- <?php
+<?php
     session_start();
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['selectedCandidate'])) {
@@ -7,9 +7,10 @@
     exit();
     }
 
-    // Restore selected vote (if any)
+    // restore the president vote
     $selectedCandidate = isset($_SESSION['president_vote']) ? $_SESSION['president_vote'] : '';
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,120 +27,91 @@
 
 <body>
 
-    <div class="container bg-white my-5 p-4 shadow-lg rounded">
+<div class="container bg-white my-5 p-4 shadow-lg rounded">
+    <!-- nav bar -->
+    <nav class="navbar navbar-expand-sm mt-5">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav d-flex justify-content w-100">
+                    <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="about_us.php" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="login.php" class="nav-link active1">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-        <!-- nav -->
-        <nav class="navbar navbar-expand-sm mt-5">
-            
-            <div class="container-fluid">
+    <div class="container text-center mb-4 h4 fw-bold text-dark">President</div>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span>
+    <!-- Candidate Cards -->
+    <div class="container my-5">
+        <div class="row align-items-center">
+            <div class="col-sm-6">
+                <div class="card shadow" style="width: 16rem; margin: auto;">
+                    <img src="images/Bradley.jpg" class="card-img-top" alt="Candidate 1" style="height: 280px;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Bradley Yawson</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 text-center">
+                <button type="button" class="btn btn-primary btn-lg vote-btn" onclick="toggleVote(this, 1)">Vote</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <div class="row align-items-center">
+            <div class="col-sm-6">
+                <div class="card shadow" style="width: 16rem; margin: auto;">
+                    <img src="images/pearl.jpeg" class="card-img-top" alt="Candidate 2" style="height: 280px;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Pearl Owusuaa</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 text-center">
+                <button type="button" class="btn btn-primary btn-lg vote-btn" onclick="toggleVote(this, 2)">Vote</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <div class="row align-items-center">
+            <div class="col-sm-6">
+                <div class="card shadow" style="width: 16rem; margin: auto;">
+                    <img src="images/Alexia.jpg" class="card-img-top" alt="Candidate 3" style="height: 280px;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Alexia Mensah</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 text-center">
+                <button type="button" class="btn btn-primary btn-lg vote-btn" onclick="toggleVote(this, 3)">Vote</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden field -->
+    <input type="hidden" id="selectedCandidate" name="selectedCandidate" value="<?php echo htmlspecialchars($selectedCandidate); ?>">
+
+    <!-- Navigation Buttons -->
+    <div class="d-flex justify-content-center mt-4">
+        <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+            <input type="hidden" name="selectedCandidate" id="selectedCandidateForm">
+            <button type="submit" class="btn btn-dark btn-sm">
+                Next <i class="fas fa-arrow-right"></i>
             </button>
+        </form>
+    </div>
 
-                <div class="collapse navbar-collapse"               id="collapsibleNavbar">
-
-                    <ul class="navbar-nav d-flex justify-content w-100">
-                        <li class="nav-item"><a href="index.php" class="nav-link ">Home</a></li>
-                        <li class="nav-item"><a href="about_us.php" class="nav-link">About Us</a></li>
-                        <li class="nav-item"><a href="login.php" class="nav-link active1">Logout</a></li>
-                    </ul>
-
-                </div>
-            </div>
-        </nav>
-        <!-- end of nav -->
-
-        <div class=" container text-center mb-4 h4" style="font-weight: bold; color: black;">President</div>
-
-        <!-- voting container -->
-
-        <!-- first candidate -->
-        <div class="container my-5">
-            <div class="row align-items-center">
-                <!-- Candidate Card -->
-                <div class="col-sm-6">
-                    <div class="card shadow" style="width: 16rem; margin: auto;">
-                        <img src="images/Bradley.jpg" class="card-img-top" alt="Candidate 1" style="height: 280px;">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Bradley Yawson</h5>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Vote Button -->
-                <?php
-                    echo ' 
-                    <div class="col-sm-6 text-center">
-                        <button type="button" class="btn btn-primary btn-lg vote-btn" onclick="toggleVote(this, \'Bradley Yawson\')">Vote</button>
-                     </div>';
-                ?>
-
-            </div>
-        </div>
-        <!-- end of first candidate -->
-
-        <!-- second candidate -->
-        <div class="container my-5">
-            <div class="row align-items-center">
-                
-                <!-- Candidate Card -->
-                <div class="col-sm-6">
-                    <div class="card shadow" style="width: 16rem; margin: auto;">
-                        <img src="images/pearl.jpeg" class="card-img-top" alt="Candidate 2" style="height: 280px;">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Pearl Owusuaa</h5>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Vote Button -->
-                <?php
-                    echo "
-                    <div class='col-sm-6 text-center'>
-                        <button type='button' class='btn btn-primary btn-lg vote-btn' onclick=\"toggleVote(this, 'Pearl Owusuaa')\">Vote</button>
-                    </div>";
-                ?>
-            </div>
-        </div>
-        <!-- end of second candidate -->
-
-        <!-- third candidate -->
-          <div class="container my-5">
-            <div class="row align-items-center">
-                
-                <!-- Candidate Card -->
-                <div class="col-sm-6">
-                    <div class="card shadow" style="width: 16rem; margin: auto;">
-                        <img src="images/alexia.jpg" class="card-img-top" alt="Candidate 3" style="height: 280px;">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Alexia Mensah</h5>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Vote Button -->
-                 <?php
-                    echo "
-                    <div class='col-sm-6 text-center'>
-                        <button type='button' class='btn btn-primary btn-lg vote-btn' onclick=\"toggleVote(this, 'Alexia Mensah')\">Vote</button>
-                    </div>";
-                ?>
-
-            </div>
-        </div>
-        <!-- end of third candidate -->
-
-        <!-- end of voting container -->
-
-         <!-- Hidden field just to keep track -->
-        <input type="hidden" id="selectedCandidate">
-
-        <!-- navigation buttons -->
-        <?php
-            echo '
-            <script>
-                function toggleVote(clickedButton, candidateName) {
+    <?php
+        echo '
+        <script>
+            function toggleVote(clickedButton, candidateID) {
                 // Reset all buttons
                 document.querySelectorAll(".vote-btn").forEach(btn => {
                     btn.innerHTML = "Vote";
@@ -153,22 +125,25 @@
                 clickedButton.classList.add("btn-success");
 
                 // Store selected candidate
-                document.getElementById("selectedCandidate").value = candidateName;
-                }
-            </script>';
+                document.getElementById("selectedCandidate").value = candidateID;
+                document.getElementById("selectedCandidateForm").value = candidateID;
+            }
 
-            echo '
-             <div class="d-flex justify-content-center mt-4" style="gap: 10px;"> 
-                <form method="POST" action="">
-                    <input type="hidden" name="selectedCandidate" id="selectedCandidate">
-                    <button type="submit" class="btn btn-dark btn-sm">
-                        Next <i class="fas fa-arrow-right"></i>
-                    </button>
-                </form>
-            </div>';
-        ?>
-      
-    </div>
-    <!-- end of container -->
+            // Restore selected vote
+            document.addEventListener("DOMContentLoaded", function() {
+                const savedVote = "' . $selectedCandidate . '";
+                if (savedVote) {
+                    document.querySelectorAll(".vote-btn").forEach(btn => {
+                        if (btn.getAttribute("onclick").includes(savedVote)) {
+                            btn.click();
+                        }
+                    });
+                }
+            });
+        </script>';
+    ?>
+
+</div>
+
 </body>
 </html>

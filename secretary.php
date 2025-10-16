@@ -69,10 +69,10 @@
                 </div>
 
                 <!-- Vote Button -->
-                 <?php
-                 echo '
+                <?php
+                    echo '
                     <div class="col-sm-6 text-center">
-                        <button type="button" class="btn btn-primary btn-lg vote-btn" onclick="toggleVote(this, \'Naa Ayele\')">Vote</button>
+                        <button type="button" class="btn btn-primary btn-lg vote-btn" onclick="toggleVote(this, 7)">Vote</button>
                     </div>';
                 ?>
 
@@ -95,10 +95,10 @@
                 </div>
 
                 <!-- Vote Button -->
-                   <?php
-                 echo '
+                <?php
+                    echo '
                     <div class="col-sm-6 text-center">
-                        <button type="button" class="btn btn-primary btn-lg vote-btn" onclick="toggleVote(this, \'Esi Maame\')">Vote</button>
+                        <button type="button" class="btn btn-primary btn-lg vote-btn" onclick="toggleVote(this, 8)">Vote</button>
                     </div>';
                 ?>
 
@@ -112,45 +112,56 @@
         <input type="hidden" id="selectedCandidate">
 
         <!-- navigation buttons -->
+        <div class="d-flex justify-content-center mt-4" style="gap: 10px;">
+            <div class="text-center">
+                <a href="treasurer.php" class="btn btn-info btn-sm">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </a>
+            </div>
+
+            <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+                <input type="hidden" name="selectedCandidate" id="selectedCandidateForm">
+                <button type="submit" class="btn btn-dark btn-sm">
+                    Preview <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+
         <?php
             echo '
             <script>
-                function toggleVote(clickedButton, candidateName) {
-                // Reset all buttons
-                document.querySelectorAll(".vote-btn").forEach(btn => {
-                    btn.innerHTML = "Vote";
-                    btn.classList.remove("btn-success");
-                    btn.classList.add("btn-primary");
-                });
+                function toggleVote(clickedButton, candidateID) {
+                    // Reset all buttons
+                    document.querySelectorAll(".vote-btn").forEach(btn => {
+                        btn.innerHTML = "Vote";
+                        btn.classList.remove("btn-success");
+                        btn.classList.add("btn-primary");
+                    });
 
-                // Highlight selected button
-                clickedButton.innerHTML = "<i class=\'fas fa-fingerprint\'></i>";
-                clickedButton.classList.remove("btn-primary");
-                clickedButton.classList.add("btn-success");
+                    // Highlight selected button
+                    clickedButton.innerHTML = "<i class=\'fas fa-fingerprint\'></i>";
+                    clickedButton.classList.remove("btn-primary");
+                    clickedButton.classList.add("btn-success");
 
-                // Store selected candidate
-                document.getElementById("selectedCandidate").value = candidateName;
+                    // Store selected candidate
+                    document.getElementById("selectedCandidate").value = candidateID;
+                    document.getElementById("selectedCandidateForm").value = candidateID;
                 }
+
+                // Restore selected vote
+                document.addEventListener("DOMContentLoaded", function() {
+                    const savedVote = "' . $selectedCandidate . '";
+                    if (savedVote) {
+                        document.querySelectorAll(".vote-btn").forEach(btn => {
+                            if (btn.getAttribute("onclick").includes(savedVote)) {
+                                btn.click();
+                            }
+                        });
+                    }
+                });
             </script>';
-
-            echo '
-            <div class="d-flex justify-content-center mt-4" style="gap: 10px;"> 
-
-                <div class="text-center">
-                    <a href="treasurer.php" class="btn btn-info btn-sm">
-                        <i class="fas fa-arrow-left"></i> Previous
-                    </a>
-                </div>
-
-                <div class="text-center">
-                    <a href="preview.php" class="btn btn-dark btn-sm">
-                        Preview <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-            </div>';
         ?>
-      
+
     </div>
     <!-- end of container -->
 </body>

@@ -1,14 +1,14 @@
 <?php
-session_start();
+    session_start();
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['selectedCandidate'])) {
-    $_SESSION['treasurer_vote'] = $_POST['selectedCandidate'];
-    header("Location: secretary.php");
-    exit();
-}
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['selectedCandidate'])) {
+        $_SESSION['treasurer_vote'] = $_POST['selectedCandidate'];
+        header("Location: secretary.php");
+        exit();
+    }
 
-// Restore selected vote (if any)
-$selectedCandidate = isset($_SESSION['treasurer_vote']) ? $_SESSION['treasurer_vote'] : '';
+    // Restore selected vote (if any)
+    $selectedCandidate = isset($_SESSION['treasurer_vote']) ? $_SESSION['treasurer_vote'] : '';
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +27,7 @@ $selectedCandidate = isset($_SESSION['treasurer_vote']) ? $_SESSION['treasurer_v
 <body>
 
 <div class="container bg-white my-5 p-4 shadow-lg rounded">
-
+    <!-- nav bar -->
     <nav class="navbar navbar-expand-sm mt-5">
         <div class="container-fluid">
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
@@ -55,7 +55,7 @@ $selectedCandidate = isset($_SESSION['treasurer_vote']) ? $_SESSION['treasurer_v
             </div>
 
             <div class="col-sm-6 text-center">
-                <button type="button" class="btn btn-primary btn-lg vote-btn" onclick="toggleVote(this, 'Paul Boateng')">Vote</button>
+                <button type="button" class="btn btn-primary btn-lg vote-btn" onclick="toggleVote(this, 4)">Vote</button>
             </div>
         </div>
     </div>
@@ -72,7 +72,7 @@ $selectedCandidate = isset($_SESSION['treasurer_vote']) ? $_SESSION['treasurer_v
             </div>
 
             <div class="col-sm-6 text-center">
-                <button type="button" class="btn btn-primary btn-lg vote-btn" onclick="toggleVote(this, 'Akosua Yankey')">Vote</button>
+                <button type="button" class="btn btn-primary btn-lg vote-btn" onclick="toggleVote(this, 5)">Vote</button>
             </div>
         </div>
     </div>
@@ -89,7 +89,7 @@ $selectedCandidate = isset($_SESSION['treasurer_vote']) ? $_SESSION['treasurer_v
             </div>
 
             <div class="col-sm-6 text-center">
-                <button type="button" class="btn btn-primary btn-lg vote-btn" onclick="toggleVote(this, 'Yaa Mansa')">Vote</button>
+                <button type="button" class="btn btn-primary btn-lg vote-btn" onclick="toggleVote(this, 6)">Vote</button>
             </div>
         </div>
     </div>
@@ -105,18 +105,19 @@ $selectedCandidate = isset($_SESSION['treasurer_vote']) ? $_SESSION['treasurer_v
             </a>
         </div>
 
-        <form method="POST" action="treasurer.php">
+        <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
             <input type="hidden" name="selectedCandidate" id="selectedCandidateForm">
             <button type="submit" class="btn btn-dark btn-sm">
                 Next <i class="fas fa-arrow-right"></i>
             </button>
         </form>
     </div>
+
     
     <?php
         echo '
         <script>
-            function toggleVote(clickedButton, candidateName) {
+            function toggleVote(clickedButton, candidateID) {
                 // Reset all buttons
                 document.querySelectorAll(".vote-btn").forEach(btn => {
                     btn.innerHTML = "Vote";
@@ -130,8 +131,8 @@ $selectedCandidate = isset($_SESSION['treasurer_vote']) ? $_SESSION['treasurer_v
                 clickedButton.classList.add("btn-success");
 
                 // Store selected candidate
-                document.getElementById("selectedCandidate").value = candidateName;
-                document.getElementById("selectedCandidateForm").value = candidateName;
+                document.getElementById("selectedCandidate").value = candidateID;
+                document.getElementById("selectedCandidateForm").value = candidateID;
             }
 
             // Restore selected vote
