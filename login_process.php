@@ -49,7 +49,7 @@
 
     // Otherwise allow login
     $_SESSION['voter_id'] = $id;
-    echo "<script>alert('Login successful.'); window.location.href='president.php';</script>";
+    echo "<script>window.location.href='president.php';</script>";
     } else {
     echo "<script>alert('Invalid password.'); window.history.back();</script>";
     }

@@ -26,7 +26,6 @@
     <div class="container bg-white my-5 p-4 shadow-lg rounded">
 
         <!-- nav -->
-
         <nav class="navbar navbar-expand-sm mt-5">
             
             <div class="container-fluid">
@@ -46,83 +45,69 @@
                 </div>
             </div>
         </nav>
-    <!-- end of nav -->
+        <!-- end of nav -->
 
-    <!-- login container -->
+        <!-- login container -->
+        <div class="container" style="width: 95%;">
 
-    <div class="container" style="width: 95%;">
+            <div class="row">
 
-        <div class="row">
+                <div class="col-sm-4 bg-warning p-4" style="border-radius: 20px 0 0 20px;">
 
-            <div class="col-sm-4 bg-warning p-4" style="border-radius: 20px 0 0 20px;">
+                    <div>
 
-                <div>
+                        <div class="d-block mx-auto" >
+                            <img src="images/logo.jpg" alt="logo" width="200" class="img-fluid d-block mx-auto">
 
-                    <div class="d-block mx-auto" >
-
-                        <img src="images/logo.jpg" alt="logo" width="200" class="img-fluid d-block mx-auto">
-
-                        <div class="shadow" style="background-color: white; height: 30px; width: 220px; margin: -15px auto; border-radius: 0 0 10px 10px"></div>
-
-                    </div>
+                            <div class="shadow" style="background-color: white; height: 30px; width: 220px; margin: -15px auto; border-radius: 0 0 10px 10px"></div>
+                        </div>
 
                         <div class="text-center mt-3"           style="font-size: 60pt; line-height: 1.0; font-weight:bold">
                             <p>LIVE<br>ELECT</p>
                         </div>
 
-                       <i class="fa-solid fa-check-to-slot" style="color: white; font-size: 80pt; display: flex; justify-content: center;"></i>
-                </div>
-            </div>
-
-            <div class="col-sm-8 p-4" style="background-color: lightgray;">
-                
-                <div class="d-block mx-auto">
-
-                    <h2 class="text-center mb-4" style="font-weight: bold; color: black;">Login</h2>
-
-                    <!-- form -->
-
-                    <form action="login_process.php" method="POST" class="mx-auto" style="width: 70%;">
-
-                        <div class="mb-3">
-                            <label for="id" class="form-label" style="font-weight: bold;">ID</label>
-                            <input type="text" class="form-control" id="id" name="id" placeholder="Enter ID">
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="password" class="form-label" style="font-weight: bold;">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
-                        </div>
-
-                        <!-- <div class="d-grid gap"></div> -->
-
-                        <input type="submit" value="Login" class="btn btn-warning btn-block mt-3" style="font-weight: bold;"></input>
-        
-                        <div class="d-flex mt-5">
-                            <p class="mb-1">Don’t have an account?</p>
-
-                            <a href="signup.php"><input type="button" value="Sign Up" name="signup" class="btn btn-warning ms-1 btn-block" style="font-weight: bold;"></input></a>
-                        </div>
-
-                    </form>
-
-                     <a href="forget.php"><input type="submit" value="Forget Password" name="forgetpass" class="btn btn-danger btn-block" style="font-weight: bold; margin-top: -240px; margin-left: 180px;"></input></a>
-
-                    <!-- end of form -->
-                 
+                        <i class="fa-solid fa-check-to-slot" style="color: white; font-size: 80pt; display: flex; justify-content: center;"></i>
+                    </div>
                 </div>
 
-            </div>
+                <div class="col-sm-8 p-4" style="background-color: lightgray;">
+                    
+                    <div class="d-block mx-auto">
 
+                        <h2 class="text-center mb-4" style="font-weight: bold; color: black;">Login</h2>
+
+                        <!-- form -->
+                        <form action="login_process.php" method="POST" class="mx-auto" style="width: 70%;">
+
+                            <div class="mb-3">
+                                <label for="id" class="form-label" style="font-weight: bold;">ID</label>
+                                <input type="text" class="form-control" id="id" name="id" placeholder="Enter ID">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="password" class="form-label" style="font-weight: bold;">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+                            </div>
+
+                            <div class="d-flex justify-content-between  align-items-center mt-3">
+                                <input type="submit" value="Login" class="btn btn-warning fw-bold">
+
+                                <a href="forget.php" class="btn btn-danger fw-bold">Forget Password</a>
+                            </div>
+
+                            <div class="d-flex mt-5">
+                                <p class="mb-1">Don’t have an account?</p>
+
+                                <a href="signup.php"><input type="button" value="Sign Up" name="signup" class="btn btn-warning ms-1 btn-block" style="font-weight: bold;"></input></a>
+                            </div>
+                        </form>
+                        <!-- end of form -->
+                    </div>
+                </div>
+            </div>
         </div>
-
+        <!-- end of login container -->
     </div>
-
-    <!-- end of login container -->
-      
-    </div>
-
     <!-- end of container -->
-    
 </body>
 </html>

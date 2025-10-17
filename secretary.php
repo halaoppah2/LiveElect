@@ -1,14 +1,43 @@
- <?php
+<?php
+    date_default_timezone_set('Africa/Accra');
     session_start();
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['selectedCandidate'])) {
-    $_SESSION['secretary_vote'] = $_POST['selectedCandidate'];
-    header("Location: preview.php");
-    exit();
+        $_SESSION['secretary_vote'] = $_POST['selectedCandidate'];
+        header("Location: preview.php");
+        exit();
     }
 
-    // Restore selected vote (if any)
-    $selectedCandidate = isset($_SESSION['secretary_vote']) ? $_SESSION['secretary_vote'] : '';
+    $selectedCandidate = isset($_SESSION['president_vote']) ? $_SESSION['president_vote'] : '';
+
+    $conn = new mysqli('localhost', 'root', '', 'liveelect');
+    if ($conn->connect_error) {
+        die("Connection Failed: " . $conn->connect_error);
+    }
+
+    // Fetch voting times
+    $result = $conn->query("SELECT start_time, end_time FROM voting_schedule LIMIT 1");
+    if ($result && $row = $result->fetch_assoc()) {
+        $start_time = $row['start_time'];
+        $end_time = $row['end_time'];
+        $current_time = date('Y-m-d H:i:s');
+        
+        //countdown time
+        if (strtotime($current_time) < strtotime($start_time)) {
+            $status = 'upcoming';
+        } elseif (strtotime($current_time) > strtotime($end_time)) {
+            $status = 'ended';
+        } else {
+            $status = 'active';
+        }
+
+        //prevent/allow user to login based on the time set
+        if ($current_time < $start_time) { 
+            echo "<script>alert('Voting has not started yet. Please check back later.'); window.location.href='login.php';</script>"; exit();
+        } elseif ($current_time > $end_time) { 
+            echo "<script>alert('Voting has ended. Thank you.'); window.location.href='login.php';</script>"; exit(); 
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -49,6 +78,58 @@
             </div>
         </nav>
         <!-- end of nav -->
+
+        
+        <!-- countdown -->
+        <div id="timer-container" style="text-align:center; margin:20px;">
+            <h5 class="text-warning bg-primary p-2 rounded w-50 mx-auto d-flex justify-content-center align-items-center" id="voting-status">
+                <?php
+                if ($status == 'upcoming') echo "Voting has not started yet";
+                elseif ($status == 'ended') echo "Voting has ended";
+                else echo "Voting in progress";
+                ?>
+            </h5>
+            <h5 class="text-danger" id="countdown"></h5>
+        </div>
+
+        <script>
+            const status = "<?php echo $status; ?>";
+            const startTime = new Date("<?php echo $start_time; ?>").getTime();
+            const endTime = new Date("<?php echo $end_time; ?>").getTime();
+
+            function updateTimer() {
+                const now = new Date().getTime();
+                let targetTime, message;
+
+                if (status === "upcoming") {
+                targetTime = startTime;
+                message = "Voting starts in: ";
+                } else if (status === "active") {
+                targetTime = endTime;
+                message = "Voting ends in: ";
+                } else {
+                document.getElementById("countdown").innerHTML = "Voting period is over.";
+                return;
+                }
+
+                const distance = targetTime - now;
+
+                if (distance <= 0) {
+                location.reload(); // refresh when countdown hits 0
+                return;
+                }
+
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById("countdown").innerHTML =
+                message + hours + "h " + minutes + "m " + seconds + "s ";
+            }
+
+            setInterval(updateTimer, 1000);
+        </script>
+        <!-- end of countdown -->
 
         <div class=" container text-center mb-4 h4" style="font-weight: bold; color: black;">Secretary</div>
 
@@ -164,5 +245,6 @@
 
     </div>
     <!-- end of container -->
+
 </body>
 </html>
