@@ -1,6 +1,11 @@
 <?php
     session_start();
 
+    if (!isset($_SESSION['admin_logged_in'])) {
+    header("Location: admin_login.php");
+    exit();
+    }
+
     date_default_timezone_set('Africa/Accra');
 
     $conn = new mysqli('localhost', 'root', '', 'liveelect');
@@ -48,7 +53,7 @@
     <link rel="icon" href="images/logo.jpg">
     <title>Set Voting Time</title>
 </head>
-<body class="bg-light">
+<body>
     <div class="container mt-5 p-5 bg-white shadow rounded">
         <h3 class="text-center mb-4">🕒 Set Voting Start and End Time</h3>
 
@@ -68,11 +73,8 @@
             </div>
 
             <div class="text-center">
-                <button type="submit" class="btn btn-success px-4">Save Schedule</button>
-                <a href="login.php" class="btn btn-secondary px-4">Back</a>
-            </div>
-            <div class="text-end mb-3">
-                <a href="admin_login.php" class="btn btn-outline-danger btn-sm">Logout</a>
+                <button type="submit" class="btn btn-success px-4">Save Scdule</button>
+                <a href="admin_logout.php" class="btn btn-outline-danger btn-sm">Logout</a>
             </div>
         </form>
     </div>

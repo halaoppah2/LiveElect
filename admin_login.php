@@ -1,12 +1,26 @@
 <?php
     session_start();
 
+    $conn = new mysqli('localhost', 'root', '', 'liveelect');
+
+    if ($conn->connect_error) {
+        die("Connection Failed: " . $conn->connect_error);
+    }
+
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $username = trim($_POST['username'] ?? '');
         $password = trim($_POST['password'] ?? '');
 
-        if ($username === 'admin' && $password === 'admin123') {
+        $stmt = $conn->prepare("SELECT passwd FROM admin WHERE username = ?");
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $stmt->bind_result($hashed_password);
+        $stmt->fetch();
+        $stmt->close();
+
+        if ($hashed_password && password_verify($password, $hashed_password)) {
             $_SESSION['admin_logged_in'] = true;
+            $_SESSION['admin_username'] = $username;
             header("Location: set_voting_time.php");
             exit();
         } else {
