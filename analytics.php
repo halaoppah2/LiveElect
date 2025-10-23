@@ -1,3 +1,7 @@
+<?php
+    $conn = new mysqli('localhost', 'root', '', 'liveelect');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
     <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
     <script src="https://kit.fontawesome.com/8161412aed.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="icon" href="images/logo.jpg">
     <title>Live Elect</title>
 </head>
@@ -19,9 +24,9 @@
         <nav class="navbar navbar-expand-sm mt-5">
             <div class="container-fluid">
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
                 <div class="collapse navbar-collapse"               id="collapsibleNavbar">
 
@@ -35,5 +40,152 @@
             </div>
         </nav>
         <!-- end of nav -->
+         <div class="container mt-3">
+            <h2 class="text-center text-primary mb-4">📊 Real-Time Voting Analytics</h2>
+            <p class="text-center text-muted mb-5">This dashboard updates automatically every 10 seconds.</p>
+
+            <div id="charts" class="row g-4">
+                <!-- Dynamic charts will load here -->
+            </div>
+         </div>
+
+        <script>
+            function loadAnalytics() {
+            fetch('get_analytics.php?mode=analytics')
+                .then(res => res.json())
+                .then(data => {
+                const container = document.getElementById('charts');
+                container.innerHTML = ''; // Clear old charts
+
+                Object.keys(data).forEach(position => {
+                    const candidates = data[position];
+
+                    // Create card for each position
+                    const card = document.createElement('div');
+                    card.className = 'col-md-6';
+                    card.innerHTML = `
+                    <div class="card shadow">
+                        <div class="card-body">
+                        <h5 class="card-title text-center text-success mb-3">${position}</h5>
+                        <canvas id="${position.replace(/\s+/g, '_')}BarChart"></canvas>
+                        <hr>
+                        <canvas id="${position.replace(/\s+/g, '_')}PieChart"></canvas>
+                        </div>
+                    </div>
+                    `;
+                    container.appendChild(card);
+
+                    // Chart data
+                    const labels = candidates.map(c => c.name);
+                    const votes = candidates.map(c => c.total_votes);
+                    const totalVotes = votes.reduce((a, b) => a + b, 0);
+                    const percentages = votes.map(v => totalVotes ? ((v / totalVotes) * 100).toFixed(1) : 0);
+
+                    // Colors for pie chart
+                    const colors = [
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(75, 192, 192, 0.6)',
+                    'rgba(153, 102, 255, 0.6)'
+                    ];
+
+                    // Bar chart
+                    new Chart(document.getElementById(`${position.replace(/\s+/g, '_')}BarChart`), {
+                    type: 'bar',
+                    data: {
+                        labels,
+                        datasets: [{
+                        label: 'Total Votes',
+                        data: votes,
+                        backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: { y: { beginAtZero: true } }
+                    }
+                    });
+
+                    // Pie chart
+                    new Chart(document.getElementById(`${position.replace(/\s+/g, '_')}PieChart`), {
+                    type: 'pie',
+                    data: {
+                        labels: labels.map((name, i) => `${name} (${percentages[i]}%)`),
+                        datasets: [{
+                        data: votes,
+                        backgroundColor: colors.slice(0, candidates.length)
+                        }]
+                    },
+                    options: { responsive: true }
+                    });
+                });
+                })
+                .catch(err => console.error('Error loading analytics:', err));
+            }
+
+            // Auto-refresh every 10 seconds
+            setInterval(loadAnalytics, 15000);
+            loadAnalytics();
+
+            // Load voting trend over time
+            function loadTrends() {
+            fetch('get_analytics.php?mode=trends')
+                .then(res => res.json())
+                .then(data => {
+                const labels = data.map(row => row.time_label);
+                const votes = data.map(row => row.total_votes);
+
+                const chartContainer = document.getElementById('trendChartContainer');
+                if (!chartContainer) {
+                    const div = document.createElement('div');
+                    div.className = 'col-12 mt-5';
+                    div.innerHTML = `
+                    <div class="card shadow">
+                        <div class="card-body">
+                        <h5 class="card-title text-center text-info mb-3">🕒 Voting Trend Over Time</h5>
+                        <canvas id="trendChart"></canvas>
+                        </div>
+                    </div>
+                    `;
+                    document.getElementById('charts').appendChild(div);
+                }
+
+                const ctx = document.getElementById('trendChart');
+                if (window.trendChartInstance) window.trendChartInstance.destroy();
+
+                window.trendChartInstance = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                    labels,
+                    datasets: [{
+                        label: 'Votes Cast',
+                        data: votes,
+                        fill: true,
+                        borderColor: 'rgba(75,192,192,1)',
+                        backgroundColor: 'rgba(75,192,192,0.2)',
+                        tension: 0.3,
+                        pointRadius: 3
+                    }]
+                    },
+                    options: {
+                    responsive: true,
+                    scales: {
+                        y: { beginAtZero: true, title: { display: true, text: 'Votes' } },
+                        x: { title: { display: true, text: 'Time (HH:MM)' } }
+                    }
+                    }
+                });
+                })
+                .catch(err => console.error('Error loading trends:', err));
+            }
+
+            setInterval(loadTrends, 15000);
+            loadTrends();
+
+        </script>
+    </div>     
 </body>
 </html>

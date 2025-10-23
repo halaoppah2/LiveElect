@@ -1,35 +1,75 @@
 <?php
-$conn = new mysqli('localhost', 'root', '', 'liveelect');
+    $conn = new mysqli('localhost', 'root', '', 'liveelect');
+    header('Content-Type: application/json');
 
-header('Content-Type: application/json');
+    $mode = isset($_GET['mode']) ? $_GET['mode'] : 'all';
 
-// temporary total eligible voters (replace later when you have a table)
-$totalEligibleVoters = 100;  
+    // --- 1️⃣ Fetch total votes per candidate ---
+    if ($mode === 'analytics' || $mode === 'all') {
+        $query = "
+            SELECT 
+                c.candidate_id,
+                c.name,
+                c.position,
+                c.total_votes,
+                (SELECT COUNT(*) FROM votes) AS total_votes_cast
+            FROM candidates c
+        ";
+        $result = $conn->query($query);
 
-// fetch candidates and votes
-$query = "SELECT candidate_id, name, position, total_votes FROM candidate ORDER BY position";
-$result = $conn->query($query);
+        $candidates = [];
+        $total_votes_cast = 0;
 
-$data = [];
-$totalVotesCast = 0;
+        while ($row = $result->fetch_assoc()) {
+            $candidates[] = $row;
+            $total_votes_cast = $row['total_votes_cast'];
+        }
 
-while ($row = $result->fetch_assoc()) {
-    $data[] = $row;
-    $totalVotesCast += $row['total_votes'];
-}
+        // Group candidates by position
+        $positions = [];
+        foreach ($candidates as $c) {
+            $positions[$c['position']][] = [
+                'name' => $c['name'],
+                'votes' => (int)$c['total_votes']
+            ];
+        }
 
-// calculate percentage vote share
-foreach ($data as &$candidate) {
-    $candidate['percentage'] = $totalVotesCast > 0 
-        ? round(($candidate['total_votes'] / $totalVotesCast) * 100, 2)
-        : 0;
-}
+        $analytics = [
+            'total_votes_cast' => (int)$total_votes_cast,
+            'positions' => $positions
+        ];
+    }
 
-$response = [
-    'totalVotesCast' => $totalVotesCast,
-    'totalEligibleVoters' => $totalEligibleVoters,
-    'candidates' => $data
-];
+    // --- 2️⃣ Fetch voting trend (for line chart) ---
+    if ($mode === 'trends' || $mode === 'all') {
+        $trendQuery = "
+            SELECT 
+                DATE_FORMAT(vote_time, '%H:%i') AS time_slot,
+                COUNT(*) AS votes
+            FROM votes
+            GROUP BY time_slot
+            ORDER BY vote_time ASC
+        ";
+        $trendResult = $conn->query($trendQuery);
 
-echo json_encode($response);
+        $trends = [];
+        while ($row = $trendResult->fetch_assoc()) {
+            $trends[] = $row;
+        }
+    }
+
+    // --- 3️⃣ Output according to mode ---
+    if ($mode === 'analytics') {
+        echo json_encode($analytics);
+    } elseif ($mode === 'trends') {
+        echo json_encode($trends);
+    } else {
+        echo json_encode([
+            'total_votes_cast' => $analytics['total_votes_cast'],
+            'positions' => $analytics['positions'],
+            'trends' => $trends
+        ]);
+    }
+
+    $conn->close();
 ?>
