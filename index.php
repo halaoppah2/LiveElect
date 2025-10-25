@@ -142,12 +142,12 @@
 
             <!-- first card -->
             <div class="col d-flex justify-content-center">
-                <div class="card" style="max-width: 18rem; border: none;">
+                <div class="card shadow-sm" style="max-width: 18rem; border: none;">
                     <div class="card-header">
                         <i class="fa-solid fa-rocket"></i>
                         <b>Quick Launch</b>
                     </div>
-                        <div class="card-body shadow">
+                        <div class="card-body">
                             <p class="card-text">Launch your institutional elections in minutes with our easy-to-use setup process.</p>
                         </div>    
                 </div>
@@ -155,12 +155,12 @@
 
             <!-- second card -->
              <div class="col d-flex justify-content-center">
-                <div class="card" style="max-width: 18rem; border: none;">
+                <div class="card shadow-sm" style="max-width: 18rem; border: none;">
                     <div class="card-header">
                         <i class="fa-solid fa-globe"></i>
                         <b>Wide Reach</b>
                     </div>
-                        <div class="card-body shadow">
+                        <div class="card-body">
                             <p class="card-text">Enable participation across Ghana with mobile and web access. Designed for both urban and rural users.</p>
                         </div>    
                 </div>
@@ -168,12 +168,12 @@
 
                 <!-- third card -->
              <div class="col d-flex justify-content-center">
-                <div class="card" style="max-width: 18rem; border: none;">
+                <div class="card shadow-sm" style="max-width: 18rem; border: none;">
                     <div class="card-header">
                         <i class="fa-solid fa-thumbs-up"></i>
                         <b>Effortless Voting</b>
                     </div>
-                        <div class="card-body shadow">
+                        <div class="card-body">
                             <p class="card-text">A secure and intuitive 
                             platform built for student unions, professional bodies, and organizational elections.</p>
                         </div>    
@@ -186,12 +186,12 @@
 
             <!-- fourth card -->
             <div class="col d-flex justify-content-center">
-                <div class="card" style="max-width: 18rem; border: none;">
+                <div class="card shadow-sm" style="max-width: 18rem; border: none;">
                     <div class="card-header">
                         <i class="fa-solid fa-mobile-screen-button"></i>
                         <b>Felexible Option</b>
                     </div>
-                    <div class="card-body shadow" style="background: linear-gradient(-45deg, rgb(255, 137, 2), gold)">
+                    <div class="card-body">
                         <p class="card-text">Vote conveniently through mobile devices or the web. Flexible access for all users </p>
                     </div>
                 </div>
@@ -199,12 +199,12 @@
 
             <!-- fifth card -->
             <div class="col d-flex justify-content-center">
-                <div class="card" style="max-width: 18rem; border: none;">
+                <div class="card shadow-sm" style="max-width: 18rem; border: none;">
                     <div class="card-header">
                         <i class="fa-solid fa-lock"></i>
                         <b>Your Vote is Safe</b>
                     </div>
-                    <div class="card-body shadow" style="background: linear-gradient(-45deg, rgb(255, 137, 2), gold)">
+                    <div class="card-body">
                         <p class="card-text">Ensuring transparency and reliability in every election. Trusted for secure institutional decision-making.</p>
                     </div>
                 </div>
@@ -212,12 +212,12 @@
 
             <!-- sixth card -->
             <div class="col d-flex justify-content-center">
-                <div class="card" style="max-width: 18rem; border: none;">
+                <div class="card shadow-sm" style="max-width: 18rem; border: none;">
                     <div class="card-header">
                         <i class="fa-solid fa-chart-line"></i>
                         <b>Real-Time Analytics</b>
                     </div>
-                    <div class="card-body shadow" style="background: linear-gradient(-45deg, rgb(255, 137, 2), gold)">
+                    <div class="card-body">
                         <p class="card-text">Visualize live trends, track voter turnout, and access analytics instantly from your personalized dashboard.</p>
                     </div>
                 </div>
@@ -228,7 +228,6 @@
         <!-- end of cards -->
 
         <!-- footer -->
-
         <div class="container-fluid bg-dark p-5 mt-5 rounded shadow-sm" id="contact">
 
             <div class="row">

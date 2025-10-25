@@ -41,9 +41,8 @@ body {
 }
 
 .card-body{
-      background: linear-gradient(45deg, rgb(255, 137, 2), gold);
+      background: rgb(228, 226, 226)
 }
-
 
 @media screen and (max-width: 787px) {
 

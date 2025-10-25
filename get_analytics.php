@@ -4,7 +4,7 @@
 
     $mode = isset($_GET['mode']) ? $_GET['mode'] : 'all';
 
-    // --- 1️⃣ Fetch total votes per candidate ---
+    // --- Fetch total votes per candidate ---
     if ($mode === 'analytics' || $mode === 'all') {
         $query = "
             SELECT 
@@ -15,6 +15,7 @@
                 (SELECT COUNT(*) FROM votes) AS total_votes_cast
             FROM candidates c
         ";
+        
         $result = $conn->query($query);
 
         $candidates = [];
@@ -40,7 +41,7 @@
         ];
     }
 
-    // --- 2️⃣ Fetch voting trend (for line chart) ---
+    // --- Fetch voting trend (for line chart) ---
     if ($mode === 'trends' || $mode === 'all') {
         $trendQuery = "
             SELECT 
@@ -58,7 +59,7 @@
         }
     }
 
-    // --- 3️⃣ Output according to mode ---
+    // --- Output according to mode ---
     if ($mode === 'analytics') {
         echo json_encode($analytics);
     } elseif ($mode === 'trends') {

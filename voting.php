@@ -63,7 +63,7 @@
 
                     echo "
                     <div class='col d-flex justify-content-center'>
-                        <div class='card shadow' style='width:20rem;'>
+                        <div class='card shadow-sm' style='width:20rem;'>
                             <img src='images/{$election['img']}' class='card-img-top' alt='logo'>
                             <div class='card-body text-center'>
                             <p class='fw-bold'>{$election['title']}</p>
