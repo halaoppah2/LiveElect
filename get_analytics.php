@@ -61,14 +61,23 @@
 
     // --- Output according to mode ---
     if ($mode === 'analytics') {
-        echo json_encode($analytics);
+    echo json_encode($analytics);
     } elseif ($mode === 'trends') {
         echo json_encode($trends);
     } else {
+        // Calculate overall total votes
+        $overall_total = 0;
+        foreach ($analytics['positions'] as $pos => $cands) {
+            foreach ($cands as $cand) {
+                $overall_total += $cand['votes'];
+            }
+        }
+
         echo json_encode([
             'total_votes_cast' => $analytics['total_votes_cast'],
             'positions' => $analytics['positions'],
-            'trends' => $trends
+            'trends' => $trends,
+            'overall_total' => $overall_total
         ]);
     }
 

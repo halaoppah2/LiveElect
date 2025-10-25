@@ -18,7 +18,6 @@
 </head>
 
 <body>
-
     <div class="container bg-white my-5 p-4 shadow rounded">
 
         <!-- nav -->
@@ -41,14 +40,18 @@
             </div>
         </nav>
         <!-- end of nav -->
-         <div class="container mt-3">
+        <div class="container mt-3">
             <h2 class="text-center text-primary mb-4">📊 Real-Time Voting Analytics</h2>
             <p class="text-center text-muted mb-5">This dashboard updates automatically every 15 seconds.</p>
+
+            <h3 id="totalVotesDisplay" class="text-center text-muted my-3 bg-info w-50 mx-auto p-2">
+            Total Votes Casted: 0
+            </h3>
 
             <div id="charts" class="row g-4">
                 <!-- Dynamic charts will load here -->
             </div>
-         </div>
+        </div>
 
         <script>
             Chart.register(ChartDataLabels);
@@ -159,6 +162,8 @@
             fetch('get_analytics.php?mode=all')
                 .then(res => res.json())
                 .then(data => {
+                document.getElementById('totalVotesDisplay').textContent =`Total Votes Casted: ${data.overall_total}`;
+
                 const trends = data.trends || [];
                 if (trends.length === 0) return;
 
