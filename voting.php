@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="style.css">
   <script defer src="bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="https://kit.fontawesome.com/8161412aed.js" crossorigin="anonymous"></script>
-  <link rel="icon" href="images/logo.jpg">
+  <link rel="icon" href="images/logo.png">
 </head>
 
 <body>
@@ -46,10 +46,10 @@
         <div class="row row-cols-1 row-cols-md-2 g-4 justify-content-center">
             <?php
                 $elections = [
-                    ["title" => "UCC SRC Election 2025/2026", "img" => "ucc.jpg", "open" => true],
-                    ["title" => "Nursing Students’ Association Election 2025", "img" => "nusa.jpg", "open" => false],
-                    ["title" => "OLA SRC Election 2025/2026", "img" => "ola.jpeg", "open" => false],
-                    ["title" => "GRASAG-UCC Chapter Election 2025", "img" => "grasag.jpg", "open" => false]
+                    ["title" => "UCC SRC Election 2025/2026", "img" => "ucc.png", "open" => true],
+                    ["title" => "Nursing Students’ Association Election 2025", "img" => "nusa.png", "open" => false],
+                    ["title" => "OLA SRC Election 2025/2026", "img" => "ola.png", "open" => false],
+                    ["title" => "GRASAG-UCC Chapter Election 2025", "img" => "grasag.png", "open" => false]
                     ];
 
                     foreach ($elections as $election) {

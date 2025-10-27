@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
     <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
     <script src="https://kit.fontawesome.com/8161412aed.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="images/logo.jpg">
+    <link rel="icon" href="images/logo.png">
     <title>Login</title>
 </head>
 
@@ -57,7 +57,7 @@
                     <div>
 
                         <div class="d-block mx-auto" >
-                            <img src="images/logo.jpg" alt="logo" width="200" class="img-fluid d-block mx-auto">
+                            <img src="images/logo.png" alt="logo" width="200" class="img-fluid d-block mx-auto">
 
                             <div class="shadow" style="background-color: white; height: 30px; width: 220px; margin: -15px auto; border-radius: 0 0 10px 10px"></div>
                         </div>

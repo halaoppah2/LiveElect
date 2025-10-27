@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
     <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
     <script src="https://kit.fontawesome.com/8161412aed.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="images/logo.jpg">
+    <link rel="icon" href="images/logo.png">
     <title>Reset Password</title>
 </head>
 

@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
     <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
     <script src="https://kit.fontawesome.com/8161412aed.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="images/logo.jpg">
+    <link rel="icon" href="images/logo.png">
     <title>Live Elect</title>
 </head>
 
@@ -26,7 +26,7 @@
                 <div class="collapse navbar-collapse"               id="collapsibleNavbar">
 
                     <a href="#" class="navbar-brand">
-                        <img src="images/logo.jpg" alt="logo" width="150px">
+                        <img src="images/logo.png" alt="logo" width="150px">
                     </a>
 
                     <ul class="navbar-nav">
@@ -65,7 +65,7 @@
             <div class="carousel-inner">
 
                 <div class="carousel-item active">
-                    <img src="images/secure.jpg" alt="picture" class="d-block w-100">
+                    <img src="images/secure.png" alt="picture" class="d-block w-100">
 
                     <div class="container">
 
@@ -87,7 +87,7 @@
                 <!-- second image -->
                 <div class="carousel-item">
 
-                    <img src="images/analytics.jpg" alt="picture" class="d-block w-100">
+                    <img src="images/analytics.png" alt="picture" class="d-block w-100">
 
                     <!-- <div class="container">
 
@@ -279,7 +279,7 @@
                 </div>
 
                 <div class="col ms-5">
-                    <img src="images/logo.jpg" alt="logo" width="150px">
+                    <img src="images/logo.png" alt="logo" width="150px">
                     <div class="mt-3">
                         <i class="fa fa-phone" style="color: gold;"></i>
                         <span class="text-white ms-2" style="font-size: 12pt;">+233 203025772</span><br>
@@ -294,21 +294,21 @@
 
         </div>
 
-    </div>
-    <!-- end of footer -->
+        </div>
+        <!-- end of footer -->
 
     </div>
 
-    <!-- end of container -->
+        <!-- end of container -->
     
-    <?php
-        echo "
-        <script>
-        let date = new Date();
-        let year = date.getFullYear();
-        document.getElementById('year').innerHTML = year;
-        </script>";
-    ?>
+        <?php
+            echo "
+            <script>
+            let date = new Date();
+            let year = date.getFullYear();
+            document.getElementById('year').innerHTML = year;
+            </script>";
+        ?>
 
 </body>
 </html>

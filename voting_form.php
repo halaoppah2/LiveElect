@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
     <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
     <script src="https://kit.fontawesome.com/8161412aed.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="images/logo.jpg">
+    <link rel="icon" href="images/logo.png">
     <title>Aspirants Dashboard</title>
 </head>
 
@@ -66,7 +66,7 @@
 
                 <div class="card shadow" style="width: 18rem;">
 
-                    <img src="images/Bradley.jpg" class="card-img-top" alt="bradley">
+                    <img src="images/man.png" class="card-img-top" alt="bradley">
 
                     <div class="card-body text-center">
                         <p class="card-text" style="font-weight: bold; font-size: 14pt;">Bradley Yawson</p>
@@ -80,7 +80,7 @@
 
                 <div class="card shadow" style="width: 18rem;">
 
-                    <img src="images/pearl.jpeg" class="card-img-top" alt="pearl">
+                    <img src="images/woman.png" class="card-img-top" alt="pearl">
 
                     <div class="card-body text-center">
                         <p class="card-text" style="font-weight: bold; font-size: 14pt">Pearl Owusuaa</p>
@@ -94,7 +94,7 @@
 
                 <div class="card shadow" style="width: 18rem;">
 
-                    <img src="images/Alexia.jpg" class="card-img-top" alt="alexia">
+                    <img src="images/woman.png" class="card-img-top" alt="alexia">
 
                     <div class="card-body text-center">
                         <p class="card-text" style="font-weight: bold; font-size: 14pt;">Alexia Mensah</p>
@@ -119,7 +119,7 @@
 
                     <div class="card shadow" style="width: 18rem;">
 
-                        <img src="images/Paul.jpg" class="card-img-top" alt="paul">
+                        <img src="images/man.png" class="card-img-top" alt="paul">
 
                         <div class="card-body text-center">
                             <p class="card-text" style="font-weight: bold; font-size: 14pt;">Paul Boateng</p>
@@ -131,7 +131,7 @@
                 <div class="col-sm-4 mb-3 mb-sm-0">
 
                     <div class="card shadow" style="width: 18rem;">
-                        <img src="images/akosua.jpg" class="card-img-top" alt="akosua">
+                        <img src="images/woman.png" class="card-img-top" alt="akosua">
 
                         <div class="card-body text-center">
                             <p class="card-text" style="font-weight: bold; font-size: 14pt;">Akosua Yankey</p>
@@ -142,7 +142,7 @@
                 <div class="col-sm-4 mb-3 mb-sm-0">
 
                     <div class="card shadow" style="width: 18rem;">
-                        <img src="images/yaa.jpg" class="card-img-top" alt="yaa">
+                        <img src="images/woman.png" class="card-img-top" alt="yaa">
 
                         <div class="card-body text-center">
                             <p class="card-text" style="font-weight: bold; font-size: 14pt;">Yaa Mansa</p>
@@ -167,7 +167,7 @@
                 <div class="col-sm-4 mb-3 mb-sm-0">
 
                     <div class="card shadow" style="width: 18rem;">
-                        <img src="images/ayele.jpg" class="card-img-top" alt="ayele">
+                        <img src="images/woman.png" class="card-img-top" alt="ayele">
 
                         <div class="card-body text-center">
                             <p class="card-text" style="font-weight: bold; font-size: 14pt;">Naa Ayele</p>
@@ -178,7 +178,7 @@
                 <div class="col-sm-4 mb-3 mb-sm-0">
 
                     <div class="card shadow" style="width: 18rem;">
-                        <img src="images/esi.jpg" class="card-img-top" alt="esi">
+                        <img src="images/woman.png" class="card-img-top" alt="esi">
 
                         <div class="card-body text-center">
                             <p class="card-text" style="font-weight: bold; font-size: 14pt;">Esi Maame</p>

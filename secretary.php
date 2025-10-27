@@ -49,7 +49,7 @@
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
     <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
     <script src="https://kit.fontawesome.com/8161412aed.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="images/logo.jpg">
+    <link rel="icon" href="images/logo.png">
     <title>Vote - Secretary</title>
 </head>
 
@@ -142,7 +142,7 @@
                 <!-- Candidate Card -->
                 <div class="col-sm-6">
                     <div class="card shadow" style="width: 16rem; margin: auto;">
-                        <img src="images/ayele.jpg" class="card-img-top" alt="Candidate 1" style="height: 280px;">
+                        <img src="images/woman.png" class="card-img-top" alt="Candidate 1">
                         <div class="card-body text-center">
                             <h5 class="card-title">Naa Ayele</h5>
                         </div>
@@ -168,7 +168,7 @@
                 <!-- Candidate Card -->
                 <div class="col-sm-6">
                     <div class="card shadow" style="width: 16rem; margin: auto;">
-                        <img src="images/esi.jpg" class="card-img-top" alt="Candidate 2" style="height: 280px;">
+                        <img src="images/woman.png" class="card-img-top" alt="Candidate 2">
                         <div class="card-body text-center">
                             <h5 class="card-title">Esi Maame</h5>
                         </div>

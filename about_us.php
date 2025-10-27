@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
     <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
     <script src="https://kit.fontawesome.com/8161412aed.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="images/logo.jpg">
+    <link rel="icon" href="images/logo.png">
     <title>About us</title>
 </head>
 
@@ -15,8 +15,7 @@
 
     <div class="container bg-white my-5 p-4 shadow-lg rounded">
 
-    <!-- nav -->
-
+        <!-- nav -->
         <nav class="navbar navbar-expand-sm mt-5">
             <div class="container-fluid">
 
@@ -27,7 +26,7 @@
                 <div class="collapse navbar-collapse"               id="collapsibleNavbar">
 
                     <a href="#" class="navbar-brand">
-                        <img src="images/logo.jpg" alt="logo" width="150px">
+                        <img src="images/logo.png" alt="logo" width="150px">
                     </a>
 
                     <ul class="navbar-nav">
@@ -41,34 +40,32 @@
                 </div>
             </div>
         </nav>
+        <!-- end of nav -->
 
-    <!-- end of nav -->
+        <div class="container">
+            <img src="images/analytics.jpg" alt="picture" class="d-block w-100" id="about">
+        </div>
 
-    <div class="container">
-        <img src="images/analytics.jpg" alt="picture" class="d-block w-100" id="about">
-    </div>
+        <hr style="width: 70%;" class="mx-auto mt-4">
 
-    <hr style="width: 70%;" class="mx-auto mt-4">
-
-       <div class=" container mt-2" style="color: darkgray;">
+        <div class=" container mt-2" style="color: darkgray;">
 
             <p>At LiveElect, we are redefining how institutions conduct elections by providing a secure, transparent, and real-time voting platform. <br> Designed for universities, unions, and professional organizations, LiveElect makes voting simple, accessible, and trustworthy.</p>
 
             <p><b>Our Mission</b><br>
-            To empower institutions with a reliable digital voting system that promotes fairness, inclusivity, and confidence in every election.</p>
+                To empower institutions with a reliable digital voting system that promotes fairness, inclusivity, and confidence in every election.</p>
 
             <p><b>Our Vision</b><br>
-            To become Ghana’s leading institutional e-voting solution, setting the standard for integrity, efficiency, and innovation in digital democracy.</p>
-            
+                To become Ghana’s leading institutional e-voting solution, setting the standard for integrity, efficiency, and innovation in digital democracy.</p>
+                
             <p><b>What Makes Us Unique</b><br>
-            Unlike traditional voting methods, LiveElect integrates real-time analytics, enabling administrators and voters to track participation <br> and results instantly. This transparency builds trust, strengthens accountability, and ensures that every voice is counted.</p>
+                Unlike traditional voting methods, LiveElect integrates real-time analytics, enabling administrators and voters to track participation <br> and results instantly. This transparency builds trust, strengthens accountability, and ensures that every voice is counted.</p>
 
             <p>With LiveElect, you don’t just vote, you experience democracy in action.</p>
-          
-       </div>
+            
+        </div>
 
         <!-- footer -->
-
         <div class="container-fluid bg-dark p-5 mt-5 rounded shadow-sm" id="contact">
 
             <div class="row">
@@ -128,7 +125,7 @@
 
                 <div class="col ms-5">
 
-                    <img src="images/logo.jpg" alt="logo" width="150px">
+                    <img src="images/logo.png" alt="logo" width="150px">
 
                     <div class="mt-3">
                         <i class="fa fa-phone" style="color: gold;"></i>
@@ -145,22 +142,16 @@
             <small class="text-warning d-block text-center">&copy;<span id="year"></span>, All right reserved</small>
 
         </div>
-
+        </div>
+        <!-- end of footer -->
     </div>
-
-    <!-- end of footer -->
-
-
-    </div>
-
     <!-- end of container -->
-    
 
     <script>
 
-    let date = new Date();
-    year = date.getFullYear();
-    document.getElementById('year').innerHTML = year;
+        let date = new Date();
+        year = date.getFullYear();
+        document.getElementById('year').innerHTML = year;
 
     </script>
     

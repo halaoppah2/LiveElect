@@ -27,12 +27,11 @@
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <script src="bootstrap/js/bootstrap.js"></script>
     <script src="https://kit.fontawesome.com/8161412aed.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="images/logo.jpg">
+    <link rel="icon" href="images/logo.png">
     <title>Preview Votes</title>
 </head>
 
 <body>
-
     <div class="container p-5 mt-5 bg-white shadow-lg rounded">
 
         <h3 class="text-center mb-4">🗳️ Preview Your Votes</h3>
@@ -43,7 +42,7 @@
             <div class="col-md-3 mx-2">
                 <div class="card shadow">
                     <?php if ($data): ?>
-                        <img src="<?= $data['photo'] ?>" class="card-img-top" style="height: 280px;">
+                        <img src="<?= $data['photo'] ?>" class="card-img-top">
                         <div class="card-body">
                         <h5 class="card-title"><?= $data['name'] ?></h5>
                         <p class="text-muted"><?= $position ?></p>

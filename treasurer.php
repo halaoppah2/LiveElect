@@ -49,7 +49,7 @@
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
     <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
     <script src="https://kit.fontawesome.com/8161412aed.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="images/logo.jpg">
+    <link rel="icon" href="images/logo.png">
     <title>Vote - Treasurer</title>
 </head>
 
@@ -129,11 +129,13 @@
         <div class="container text-center mb-4 h4 fw-bold text-dark">Treasurer</div>
 
         <!-- Candidate Cards -->
+         
+         <!-- first candidate -->
         <div class="container my-5">
             <div class="row align-items-center">
                 <div class="col-sm-6">
                     <div class="card shadow" style="width: 16rem; margin: auto;">
-                        <img src="images/paul.jpg" class="card-img-top" alt="Candidate 1" style="height: 280px;">
+                        <img src="images/man.png" class="card-img-top" alt="Candidate 1">
                         <div class="card-body text-center">
                             <h5 class="card-title">Paul Boateng</h5>
                         </div>
@@ -146,11 +148,12 @@
             </div>
         </div>
 
+        <!-- second candidate -->
         <div class="container my-5">
             <div class="row align-items-center">
                 <div class="col-sm-6">
                     <div class="card shadow" style="width: 16rem; margin: auto;">
-                        <img src="images/akosua.jpg" class="card-img-top" alt="Candidate 2" style="height: 280px;">
+                        <img src="images/woman.png" class="card-img-top" alt="Candidate 2">
                         <div class="card-body text-center">
                             <h5 class="card-title">Akosua Yankey</h5>
                         </div>
@@ -163,11 +166,12 @@
             </div>
         </div>
 
+        <!-- third candidate -->
         <div class="container my-5">
             <div class="row align-items-center">
                 <div class="col-sm-6">
                     <div class="card shadow" style="width: 16rem; margin: auto;">
-                        <img src="images/yaa.jpg" class="card-img-top" alt="Candidate 3" style="height: 280px;">
+                        <img src="images/woman.png" class="card-img-top" alt="Candidate 3">
                         <div class="card-body text-center">
                             <h5 class="card-title">Yaa Mansa</h5>
                         </div>

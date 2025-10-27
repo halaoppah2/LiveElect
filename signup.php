@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
     <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
     <script src="https://kit.fontawesome.com/8161412aed.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="images/logo.jpg">
+    <link rel="icon" href="images/logo.png">
     <title>Signup</title>
 </head>
 
@@ -36,94 +36,93 @@
                 </div>
             </div>
         </nav>
-    <!-- end of nav -->
+        <!-- end of nav -->
 
-    <!-- signup container -->
+        <!-- signup container -->
 
-    <div class="container" style="width: 95%;">
+        <div class="container" style="width: 95%;">
 
-        <div class="row">
+            <div class="row">
 
-            <!-- first column -->
+                <!-- first column -->
 
-            <div class="col-sm-8 p-4" style="background-color: lightgray;">
-                
-                <div class="d-block mx-auto">
+                <div class="col-sm-8 p-4" style="background-color: lightgray;">
+                    
+                    <div class="d-block mx-auto">
 
-                    <h2 class="text-center mb-4" style="font-weight: bold; color: black;">Signup</h2>
+                        <h2 class="text-center mb-4" style="font-weight: bold; color: black;">Signup</h2>
 
-                    <!-- form -->
+                        <!-- form -->
 
-                    <form action="signup_process.php" method="POST" class="mx-auto" style="width: 70%;">
+                        <form action="signup_process.php" method="POST" class="mx-auto" style="width: 70%;">
 
-                        <div class="mb-3">
-                            <label for="email" class="form-label" style="font-weight: bold;">Email</label>
-                            <input type="email" class="form-control" id="id" name="email" placeholder="Enter name">
-                        </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label" style="font-weight: bold;">Email</label>
+                                <input type="email" class="form-control" id="id" name="email" placeholder="Enter name">
+                            </div>
 
-                        <div class="mb-3">
-                            <label for="id" class="form-label" style="font-weight: bold;">ID</label>
-                            <input type="text" class="form-control" id="id" name="id" placeholder="Enter ID">
-                        </div>
+                            <div class="mb-3">
+                                <label for="id" class="form-label" style="font-weight: bold;">ID</label>
+                                <input type="text" class="form-control" id="id" name="id" placeholder="Enter ID">
+                            </div>
 
-                        <div class="mb-3">
-                            <label for="password" class="form-label" style="font-weight: bold;">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
-                        </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label" style="font-weight: bold;">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+                            </div>
 
-                        <div class="mb-3">
-                            <label for="con_password" class="form-label" style="font-weight: bold;">Confirm Password</label>
-                            <input type="password" class="form-control" id="con_password" name="con_password" placeholder="Re-enter password">
-                        </div>
+                            <div class="mb-3">
+                                <label for="con_password" class="form-label" style="font-weight: bold;">Confirm Password</label>
+                                <input type="password" class="form-control" id="con_password" name="con_password" placeholder="Re-enter password">
+                            </div>
 
-                        <input type="submit" value="Signup" class="btn btn-warning btn-block mt-3" style="font-weight: bold;"></input>
+                            <input type="submit" value="Signup" class="btn btn-warning btn-block mt-3" style="font-weight: bold;"></input>
 
-                        <div class="d-flex mt-5">
-                            <p class="mb-1">Already have an account?</p>
+                            <div class="d-flex mt-5">
+                                <p class="mb-1">Already have an account?</p>
 
-                           <a href="login.php"> <input type="button" value="Login" name="signup" class="btn btn-warning ms-1 btn-block" style="font-weight: bold;"></input></a>
-                        </div>
+                            <a href="login.php"> <input type="button" value="Login" name="signup" class="btn btn-warning ms-1 btn-block" style="font-weight: bold;"></input></a>
+                            </div>
 
-                    </form>
-                    <!-- end of form -->
-                 
+                        </form>
+                        <!-- end of form -->
+                    
+                    </div>
+
                 </div>
+                <!-- end of first column -->
 
-            </div>
-            <!-- end of first column -->
+                <!-- second column -->
 
-            <!-- second column -->
+                <div class="col-sm-4 bg-warning p-4" style="border-radius: 0px 20px 20px 0px;">
 
-            <div class="col-sm-4 bg-warning p-4" style="border-radius: 0px 20px 20px 0px;">
+                    <div>
 
-                <div>
+                        <div class="d-block mx-auto" >
 
-                    <div class="d-block mx-auto" >
+                            <img src="images/logo.png" alt="logo" width="200" class="img-fluid d-block mx-auto">
 
-                         <img src="images/logo.jpg" alt="logo" width="200" class="img-fluid d-block mx-auto">
+                            <div class="shadow" style="background-color: white; height: 30px; width: 220px; margin: -15px auto; border-radius: 0 0 10px 10px"></div>
 
-                          <div class="shadow" style="background-color: white; height: 30px; width: 220px; margin: -15px auto; border-radius: 0 0 10px 10px"></div>
+                        </div>
+
+                            <div class="text-center mt-3" style="font-size: 60pt; line-height: 1.0; font-weight:bold">
+                                <p>LIVE<br>ELECT</p>
+                            </div>
+
+                        <i class="fa-solid fa-check-to-slot" style="color: white; font-size: 80pt; display: flex; justify-content: center;"></i>
 
                     </div>
 
-                        <div class="text-center mt-3" style="font-size: 60pt; line-height: 1.0; font-weight:bold">
-                            <p>LIVE<br>ELECT</p>
-                        </div>
-
-                       <i class="fa-solid fa-check-to-slot" style="color: white; font-size: 80pt; display: flex; justify-content: center;"></i>
-
                 </div>
+                <!-- end of second column -->
 
             </div>
-            <!-- end of second column -->
-
         </div>
 
-    </div>
-
-    <!-- end of signup container -->
-      
-    </div>
+        <!-- end of signup container -->
+        
+        </div>
 
     <!-- end of container -->
     
