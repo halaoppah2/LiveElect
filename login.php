@@ -48,7 +48,7 @@
         <!-- end of nav -->
 
         <!-- login container -->
-        <div class="container" style="width: 95%;">
+        <div class="container" style="width: 95%; height: 500px;">
 
             <div class="row">
 

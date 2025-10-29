@@ -45,13 +45,13 @@
 
             <div class="col p-2 shadow rounded" style="background-color: lightgray; height: 500px;">
                 
-                <div class="d-block mx-auto" style="margin-top: 120px;">
+                <div class=" container d-block mx-auto" style="margin-top: 120px;">
 
                     <h2 class="text-center mb-2" style="font-weight: bold; color: black;">Forget Password</h2>
 
                     <!-- form -->
 
-                    <form action="forget_password.php" method="POST" class="mx-auto" style="width: 60%;">
+                    <form action="forget_password.php" method="POST" class="mx-auto container" style="width: 60%;">
 
                         <div class="mb-3">
                             <label for="id" class="form-label" style="font-weight: bold;">Email</label>
@@ -59,7 +59,7 @@
                         </div>
 
                         <div class="mt-4">
-                        <input type="submit" value="Send" name="forgetpass" class="btn btn-danger btn-block d-block mx-auto" style="font-weight: bold; width: 250px;"></input>
+                        <input type="submit" value="Send" name="forgetpass" class="btn btn-danger btn-block d-block mx-auto" style="font-weight: bold; width: auto;"></input>
                         </div>
 
                     </form>

@@ -59,14 +59,14 @@
                 To become Ghana’s leading institutional e-voting solution, setting the standard for integrity, efficiency, and innovation in digital democracy.</p>
                 
             <p><b>What Makes Us Unique</b><br>
-                Unlike traditional voting methods, LiveElect integrates real-time analytics, enabling administrators and voters to track participation <br> and results instantly. This transparency builds trust, strengthens accountability, and ensures that every voice is counted.</p>
+                Unlike traditional voting methods and other e-voting systems, LiveElect integrates real-time analytics, enabling administrators and voters to track participation and results instantly. This transparency builds trust, strengthens accountability, and ensures that every vote is counted.</p>
 
             <p>With LiveElect, you don’t just vote, you experience democracy in action.</p>
             
         </div>
 
         <!-- footer -->
-        <div class="container-fluid bg-dark p-5 mt-5 rounded shadow-sm" id="contact">
+        <div class="container bg-dark p-5 mt-5 rounded shadow-sm" id="contact">
 
             <div class="row">
 

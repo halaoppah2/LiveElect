@@ -52,6 +52,8 @@
 
     $update = $conn->prepare("UPDATE candidates SET total_votes = total_votes + 1 WHERE candidate_id = ?");
 
+    // $conn->query("UPDATE candidates SET total_votes = total_votes - 1 WHERE candidate_id = $candidate_id");
+
     foreach ($votes as $position => $candidate_id) {
         $stmt->bind_param("sis", $voter_id, $candidate_id, $position);
         $stmt->execute();

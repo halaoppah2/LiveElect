@@ -65,7 +65,7 @@
             $mail->setFrom('noreply@liveelect.com', 'LiveElect Support');
             $mail->addAddress($email); // Send to user’s email
 
-            // Content
+            // Contenty
             $mail->isHTML(true);
             $mail->Subject = 'Password Reset Request';
             $mail->Body    = "

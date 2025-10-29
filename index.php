@@ -218,7 +218,7 @@
                         <b>Real-Time Analytics</b>
                     </div>
                     <div class="card-body">
-                        <p class="card-text">Visualize live trends, track voter turnout, and access analytics instantly from your personalized dashboard.</p>
+                        <p class="card-text">Visualize live trends, track voter turnout, and access analytics instantly from our analytics dashboard.</p>
                     </div>
                 </div>
             </div>
@@ -228,13 +228,12 @@
         <!-- end of cards -->
 
         <!-- footer -->
-        <div class="container-fluid bg-dark p-5 mt-5 rounded shadow-sm" id="contact">
+        <div class="container bg-dark p-5 mt-5 rounded shadow-sm" id="contact">
 
             <div class="row">
-                <div class="col">
-                    <div class="text-warning mb-4">
-                        <span>Send us a message</span>
-                    </div>
+                <div class="col-sm-4">
+
+                    <p class="text-warning">Send us a message</p>
                     
                     <form action="form.php" method="POST" name="myForm">
 
@@ -260,7 +259,7 @@
 
                 </div>
 
-                <div class="col ms-5">
+                <div class="col-sm-4">
                      
                     <div class="text-light mb-4">
                         <span>Quik Links</span>
@@ -275,10 +274,10 @@
 
                     <a href="https://www.instagram.com/oppah_gh?igsh=Z3hiZ3hzbTBrMnpj&utm_source=qr" target="_blank"><i class="fa-brands fa-instagram" style="color: gold; font-size: 18pt; margin-top: 20px;"></i></a>
 
-                    <a href="https://www.linkedin.com/in/enoch-oppah-021b93266?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank"><i class="fa-brands fa-linkedin ms-3" style="color: blue; font-size: 18pt; margin-top: 20px;"></i></a>
+                    <a href="https://www.linkedin.com/in/enoch-oppah-021b93266?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank"><i class="fa-brands fa-linkedin ms-3" style="color: white; font-size: 18pt; margin-top: 20px;"></i></a>
                 </div>
 
-                <div class="col ms-5">
+                <div class="col-sm-4">
                     <img src="images/logo.png" alt="logo" width="150px">
                     <div class="mt-3">
                         <i class="fa fa-phone" style="color: gold;"></i>
@@ -290,7 +289,7 @@
                 </div>
             </div> 
 
-            <small class="text-warning d-block text-center">&copy;<span id="year"></span>, All right reserved</small>
+            <small class="text-warning d-block text-center mt-4">&copy;<span id="year"></span>, All right reserved</small>
 
         </div>
 
@@ -299,7 +298,7 @@
 
     </div>
 
-        <!-- end of container -->
+    <!-- end of container -->
     
         <?php
             echo "
