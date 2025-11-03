@@ -189,7 +189,7 @@
                 <div class="card shadow-sm" style="max-width: 18rem; border: none;">
                     <div class="card-header">
                         <i class="fa-solid fa-mobile-screen-button"></i>
-                        <b>Felexible Option</b>
+                        <b>Flexible Option</b>
                     </div>
                     <div class="card-body">
                         <p class="card-text">Vote conveniently through mobile devices or the web. Flexible access for all users </p>

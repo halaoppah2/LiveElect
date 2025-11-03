@@ -58,7 +58,7 @@
             <div class="row">
 
                 <div class="text-center">
-                    <h4>President</h4>
+                    <h4 class="fw-bold text-danger">President</h4>
                 </div>
             
             <!-- first card -->
@@ -107,7 +107,7 @@
         <!-- end of first row  -->
 
             <div class="text-center mt-4 mb-4">
-                <h4>Treasurer</h4>
+                <h4 class="fw-bold text-danger">Treasurer</h4>
             </div>
 
         <!-- seccond row -->
@@ -156,7 +156,7 @@
         <!-- end of seccond row  -->
          
             <div class="text-center mt-4 mb-4">
-                <h4>Secretary</h4>
+                <h4 class="fw-bold text-danger">Secretary</h4>
             </div>
 
         <!-- third row -->

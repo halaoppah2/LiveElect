@@ -55,6 +55,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
+    // Check pre-populated table for existing id
+//     $stmt = $conn->prepare("SELECT * FROM users WHERE id = ?");
+//     $stmt->bind_param("s", $id);
+//     $stmt->execute();
+//     $result = $stmt->get_result();
+//     $stmt->close();
+
+//    if ($result->num_rows === 0) {
+//     echo "<script>alert('Invalid ID or ID does not exist.'); window.history.back();</script>";
+//     exit;
+//     }
+
     // Hash the password
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 

@@ -120,18 +120,31 @@
                     }]
                     },
 
-                    options: {
-                    responsive: true,
-                    scales: { y: { beginAtZero: true } },
-                    plugins: {
-                        legend: { display: true },
+                     options: {
+                      responsive: true,
+                      scales: {
+                        y: { beginAtZero: true }
+                      },
+                      plugins: {
+                        legend: {
+                          display: false
+                        },
                         tooltip: { enabled: true },
                         datalabels: {
-                        anchor: 'end',
-                        align: 'top',
-                        formatter: (value) => value
+                          anchor: 'end',
+                          align: 'top',
+                          clamp: true,
+                          clip: false,
+                          font: {
+                            weight: 'bold',
+                            size: 12
+                          },
+                          formatter: (value) => value
                         }
-                    }
+                      },
+                      layout: {
+                        padding: { top: 20 } 
+                      }
                     }
 
                     });
@@ -203,13 +216,19 @@
                         pointRadius: 3
                     }]
                     },
+
                     options: {
-                    responsive: true,
-                    scales: {
+                      responsive: true,
+                      plugins: {
+                        legend: { display: false },
+                        tooltip: { enabled: true }
+                      },
+                      scales: {
                         y: { beginAtZero: true, title: { display: true, text: 'Votes' } },
                         x: { title: { display: true, text: 'Time (HH:MM)' } }
+                      }
                     }
-                    }
+                    
                 });
                 })
                 .catch(err => console.error('Error loading trends:', err));

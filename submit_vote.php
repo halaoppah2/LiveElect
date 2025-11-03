@@ -1,4 +1,7 @@
 <?php
+
+    date_default_timezone_set('Africa/Accra');
+    
     session_start();
 
     $conn = new mysqli('localhost', 'root', '', 'liveelect');

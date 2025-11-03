@@ -56,8 +56,8 @@
             $mail->isSMTP();
             $mail->Host       = 'smtp.gmail.com';
             $mail->SMTPAuth   = true;
-            $mail->Username   = 'enoch.oppah@stu.ucc.edu.gh'; // your Gmail
-            $mail->Password   = 'ampw nwxj gmkp lobu'; // your Gmail App Password
+            $mail->Username   = 'enochoppah2@gmail.com'; // your Gmail
+            $mail->Password   = 'wyjj eqzb tsyp arar'; // your Gmail App Password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port       = 587;
 
@@ -65,7 +65,7 @@
             $mail->setFrom('noreply@liveelect.com', 'LiveElect Support');
             $mail->addAddress($email); // Send to user’s email
 
-            // Contenty
+            // Content
             $mail->isHTML(true);
             $mail->Subject = 'Password Reset Request';
             $mail->Body    = "

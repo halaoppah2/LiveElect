@@ -58,7 +58,7 @@
 
                             <div class="mb-3">
                                 <label for="email" class="form-label" style="font-weight: bold;">Email</label>
-                                <input type="email" class="form-control" id="id" name="email" placeholder="Enter name">
+                                <input type="email" class="form-control" id="id" name="email" placeholder="Enter email">
                             </div>
 
                             <div class="mb-3">

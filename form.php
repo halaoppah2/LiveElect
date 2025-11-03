@@ -41,15 +41,14 @@
             $mail->isSMTP();
             $mail->Host       = 'smtp.gmail.com';
             $mail->SMTPAuth   = true;
-            $mail->Username   = 'enoch.oppah@stu.ucc.edu.gh'; // your email
-            $mail->Password   = 'ampw nwxj gmkp lobu'; // your email password
+            $mail->Username   = 'enochoppah2@gmail.com'; // your email
+            $mail->Password   = 'wyjj eqzb tsyp arar'; // your email password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port       = 587;
 
             //Recipients
             $mail->setFrom('test@test.com', 'LiveElect');
-            $mail->addAddress('enoch.oppah@stu.ucc.edu.gh'); // recipient email
-
+            $mail->addAddress('enochoppah2@gmail.com'); // recipient email
             $mail->isHTML(true);
             $mail->Subject = 'New Message from Contact Form';
             $mail->Body    = "Name: {$name}<br>Email: {$email}<br>Message: {$message}";
@@ -59,6 +58,32 @@
             } else {
                 echo "<script>alert('Message failed. Please try again.'); window.location.href='{$source}.php';</script>";
             }
+
+            // === Auto-reply to user ===
+            $reply = new PHPMailer(true);
+            $reply->isSMTP();
+            $reply->Host       = 'smtp.gmail.com';
+            $reply->SMTPAuth   = true;
+            $reply->Username   = 'enochoppah2@gmail.com';
+            $reply->Password   = 'wyjj eqzb tsyp arar';
+            $reply->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $reply->Port       = 587;
+
+            $reply->setFrom('noreply@liveelect.com', 'LiveElect Support');
+            $reply->addAddress($email, $name);
+            $reply->isHTML(true);
+            $reply->Subject = 'We received your message';
+            $reply->Body    = "
+                <p>Hi <b>{$name}</b>,</p>
+                <p>Thank you for contacting <b>LiveElect</b>. We have received your message and will get back to you shortly.</p>
+                <hr>
+                <p><b>Your Message:</b></p>
+                <blockquote style='color:#555;border-left:3px solid #0099cc;padding-left:10px;'>
+                    {$message}
+                </blockquote>
+                <p>Best regards,<br><b>LiveElect Support Team</b></p>
+            ";
+            $reply->send();
 
 
         }catch (Exception $e) {
