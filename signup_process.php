@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 //     $stmt->close();
 
 //    if ($result->num_rows === 0) {
-//     echo "<script>alert('Invalid ID or ID does not exist.'); window.history.back();</script>";
+//     echo "<script>alert('Invalid ID or ID does not exist.'); window.history. back();</script>";
 //     exit;
 //     }
 

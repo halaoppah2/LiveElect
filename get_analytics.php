@@ -1,8 +1,19 @@
 <?php
-    $conn = new mysqli('localhost', 'root', '', 'liveelect');
+    date_default_timezone_set('Africa/Accra');
+
     header('Content-Type: application/json');
 
+    $conn = new mysqli('localhost', 'root', '', 'liveelect');
+    
     $mode = isset($_GET['mode']) ? $_GET['mode'] : 'all';
+
+    // --- Check if voting has ended ---
+    $check = $conn->query("SELECT * FROM voting_schedule ORDER BY id DESC LIMIT 1");
+    $schedule = $check->fetch_assoc();
+
+    date_default_timezone_set('Africa/Accra');
+    $now = date('Y-m-d H:i:s');
+    $votingEnded = ($now > $schedule['end_time']) ? true : false;
 
     // --- Fetch total votes per candidate ---
     if ($mode === 'analytics' || $mode === 'all') {
@@ -17,7 +28,6 @@
         ";
         
         $result = $conn->query($query);
-
         $candidates = [];
         $total_votes_cast = 0;
 
@@ -61,7 +71,11 @@
 
     // --- Output according to mode ---
     if ($mode === 'analytics') {
-    echo json_encode($analytics);
+    echo json_encode([
+        'total_votes_cast' => $analytics['total_votes_cast'],
+        'positions' => $analytics['positions'],
+        'votingEnded' => $votingEnded
+    ]);
     } elseif ($mode === 'trends') {
         echo json_encode($trends);
     } else {
@@ -74,11 +88,13 @@
         }
 
         echo json_encode([
-            'total_votes_cast' => $analytics['total_votes_cast'],
-            'positions' => $analytics['positions'],
-            'trends' => $trends,
-            'overall_total' => $overall_total
-        ]);
+        'total_votes_cast' => $analytics['total_votes_cast'],
+        'positions' => $analytics['positions'],
+        'trends' => $trends,
+        'overall_total' => $overall_total,
+        'votingEnded' => $votingEnded
+    ]);
+
     }
 
     $conn->close();

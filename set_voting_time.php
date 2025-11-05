@@ -55,25 +55,22 @@
 </head>
 <body>
     <div class="container mt-5 p-5 bg-white shadow rounded">
+        
         <h3 class="text-center mb-4">🕒 Set Voting Start and End Time</h3>
 
         <form method="POST" class="p-3">
             <div class="mb-3">
                 <label for="start_time" class="form-label">Start Time</label>
-                <input type="datetime-local" name="start_time" id="start_time"
-                       class="form-control"
-                       value="<?php echo isset($schedule['start_time']) ? date('Y-m-d\TH:i', strtotime($schedule['start_time'])) : ''; ?>" required>
+                <input type="datetime-local" name="start_time" id="start_time" class="form-control" value="<?php echo isset($schedule['start_time']) ? date('Y-m-d\TH:i', strtotime($schedule['start_time'])) : ''; ?>" required>
             </div>
 
             <div class="mb-3">
                 <label for="end_time" class="form-label">End Time</label>
-                <input type="datetime-local" name="end_time" id="end_time"
-                       class="form-control"
-                       value="<?php echo isset($schedule['end_time']) ? date('Y-m-d\TH:i', strtotime($schedule['end_time'])) : ''; ?>" required>
+                <input type="datetime-local" name="end_time" id="end_time" class="form-control" value="<?php echo isset($schedule['end_time']) ? date('Y-m-d\TH:i', strtotime($schedule['end_time'])) : ''; ?>" required>
             </div>
 
             <div class="text-center">
-                <button type="submit" class="btn btn-success px-4">Save Scdule</button>
+                <button type="submit" class="btn btn-success px-4">Save Schedule</button>
                 <a href="admin_logout.php" class="btn btn-outline-danger btn-sm">Logout</a>
             </div>
         </form>

@@ -44,6 +44,8 @@
             <h2 class="text-center text-primary mb-4">📊 Real-Time Voting Analytics</h2>
             <p class="text-center text-muted mb-5">This dashboard updates automatically every 15 seconds.</p>
 
+            <div id="votingStatus" class="text-center my-3"></div>
+
             <h3 id="totalVotesDisplay" class="text-center text-muted my-3 bg-info w-50 mx-auto p-2">
             Total Votes Casted: 0
             </h3>
@@ -60,8 +62,19 @@
             fetch('get_analytics.php?mode=analytics')
                 .then(res => res.json())
                 .then(data => {
+
+                // Show voting ended message
+                const statusDiv = document.getElementById('votingStatus');
+                if (data.votingEnded) {
+                statusDiv.innerHTML = `<div class="alert alert-danger fw-bold w-50 mx-auto">Voting has ended. Results are final.</div>`;
+                } else {
+                statusDiv.innerHTML = '';
+                }
+
                 const container = document.getElementById('charts');
                 container.innerHTML = ''; // Clear old charts
+
+                window.votingEnded = data.votingEnded; // track if voting has ended
 
                 Object.keys(data.positions).forEach(position => {
                     const candidates = data.positions[position];
@@ -138,9 +151,35 @@
                           font: {
                             weight: 'bold',
                             size: 12
-                          },
-                          formatter: (value) => value
+                        },
+
+                        formatter: function(value, context) {
+                        const dataset = context.chart.data.datasets[0].data;
+                        const sorted = [...dataset].sort((a, b) => b - a);
+                        const rank = sorted.indexOf(value) + 1;
+                        const suffix = rank === 1 ? '1st' : rank === 2 ? '2nd' : rank === 3 ? '3rd' : rank + 'th';
+
+                        if (window.votingEnded) {
+                            return `${value} votes (${suffix})`;
+                        } else {
+                            return `${value} votes`;
                         }
+                    },
+
+                    color: function(context) {
+                    if (!window.votingEnded) return '#000';
+                    const dataset = context.chart.data.datasets[0].data;
+                    const sorted = [...dataset].sort((a, b) => b - a);
+                    const rank = sorted.indexOf(context.dataset.data[context.dataIndex]) + 1;
+
+                    // 🎨 color based on rank
+                    if (rank === 1) return 'gold';
+                    if (rank === 2) return 'silver';
+                    if (rank === 3) return '#cd7f32'; // bronze
+                    return '#000';
+                    },
+
+                    }
                       },
                       layout: {
                         padding: { top: 20 } 
@@ -237,6 +276,9 @@
             // Auto-refresh every 15 seconds
             setInterval(loadTrends, 15000);
             loadTrends();
+
+            
+
         </script>
 
     </div>     

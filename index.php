@@ -261,17 +261,18 @@
 
                 <div class="col-sm-4">
                      
-                    <div class="text-light mb-4">
+                    <div class="text-light mb-2">
                         <span>Quik Links</span>
                     </div>
 
                     <div>
                         <a href="#" class="text-warning" style="text-decoration: none;">Terms of Service</a><br>
                         <a href="#" class="text-warning" style="text-decoration: none;">Privacy Policy</a><br>
+                        <a href="login.php" class="text-warning" style="text-decoration: none;">Login</a><br>
+                        <a href="analytics.php" class="text-warning" style="text-decoration: none;">Analytics</a><br>
                     </div>
 
                     <!-- social media -->
-
                     <a href="https://www.instagram.com/oppah_gh?igsh=Z3hiZ3hzbTBrMnpj&utm_source=qr" target="_blank"><i class="fa-brands fa-instagram" style="color: gold; font-size: 18pt; margin-top: 20px;"></i></a>
 
                     <a href="https://www.linkedin.com/in/enoch-oppah-021b93266?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank"><i class="fa-brands fa-linkedin ms-3" style="color: white; font-size: 18pt; margin-top: 20px;"></i></a>
