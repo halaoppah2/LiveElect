@@ -23,7 +23,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-                <div class="collapse navbar-collapse"               id="collapsibleNavbar">
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
 
                     <a href="#" class="navbar-brand">
                         <img src="images/logo.png" alt="logo" width="150px">
