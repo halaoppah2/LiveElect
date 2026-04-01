@@ -65,7 +65,7 @@
             <div class="carousel-inner">
 
                 <div class="carousel-item active">
-                    <img src="images/secure.png" alt="picture" class="d-block w-100">
+                    <img src="images/secure.png" alt="secure" class="d-block w-100">
 
                     <div class="container">
 
@@ -87,7 +87,7 @@
                 <!-- second image -->
                 <div class="carousel-item">
 
-                    <img src="images/analytics.png" alt="picture" class="d-block w-100">
+                    <img src="images/analytics.png" alt="analytic" class="d-block w-100">
 
                     <!-- <div class="container">
 
@@ -245,7 +245,7 @@
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="" class="form-control form-control-sm" placeholder="Email" style="width: 250px; height: 50px;" name="email">
+                            <input type="email" class="form-control form-control-sm" placeholder="Email" style="width: 250px; height: 50px;" name="email">
                             <label for="email">Email</label>
                         </div>
 
@@ -253,7 +253,7 @@
                             <textarea name="message" id="" cols="30" rows="6" placeholder="Message, not more than 100 characters" style="padding: 5px;"></textarea>
                         </div>
 
-                        <input type="submit" class="btn btn-outline-warning btn-sm">Sumbit</input>
+                        <input type="submit" value="Submit" class="btn btn-outline-warning btn-sm">
 
                     </form>
 
@@ -273,16 +273,16 @@
                     </div>
 
                     <!-- social media -->
-                    <a href="https://www.instagram.com/oppah_gh?igsh=Z3hiZ3hzbTBrMnpj&utm_source=qr" target="_blank"><i class="fa-brands fa-instagram" style="color: gold; font-size: 18pt; margin-top: 20px;"></i></a>
+                    <a href="https://www.instagram.com/oppah_gh?igsh=Z3hiZ3hzbTBrMnpj&utm_source=qr" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram" style="color: gold; font-size: 18pt; margin-top: 20px;"></i></a>
 
-                    <a href="https://www.linkedin.com/in/enoch-oppah-021b93266?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank"><i class="fa-brands fa-linkedin ms-3" style="color: white; font-size: 18pt; margin-top: 20px;"></i></a>
+                    <a href="https://www.linkedin.com/in/enoch-oppah-021b93266?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin ms-3" style="color: white; font-size: 18pt; margin-top: 20px;"></i></a>
                 </div>
 
                 <div class="col-sm-4">
                     <img src="images/logo.png" alt="logo" width="150px">
                     <div class="mt-3">
                         <i class="fa fa-phone" style="color: gold;"></i>
-                        <span class="text-white ms-2" style="font-size: 12pt;">+233 203025772</span><br>
+                        <span class="text-white ms-2" style="font-size: 12pt;"><a href="tel:+233203025772" style="text-decoration:  none; color: white">+233203025772</a></span><br>
 
                         <i class="fa fa-envelope" style="color: gold;"></i>
                         <span class="text-white ms-2"; style="font-size: 12px;">enochoppah2@gmail.com</span>
@@ -293,22 +293,16 @@
             <small class="text-warning d-block text-center mt-4">&copy;<span id="year"></span>, All right reserved</small>
 
         </div>
-
-        </div>
         <!-- end of footer -->
 
     </div>
 
     <!-- end of container -->
     
-        <?php
-            echo "
-            <script>
-            let date = new Date();
-            let year = date.getFullYear();
-            document.getElementById('year').innerHTML = year;
-            </script>";
-        ?>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
 
 </body>
 </html>

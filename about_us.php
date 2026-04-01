@@ -32,7 +32,7 @@
                     <ul class="navbar-nav">
 
                         <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
-                        <li class="nav-item"><a href="#about" class="nav-link active1">About Us</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link active1">About Us</a></li>
                         <li class="nav-item"><a href="#contact" class="nav-link">Contact Us</a></li>
 
                     </ul>
@@ -43,7 +43,7 @@
         <!-- end of nav -->
 
         <div class="container">
-            <img src="images/analytics.jpg" alt="picture" class="d-block w-100" id="about">
+            <img src="images/analytics.jpg" alt="picture" class="d-block w-100">
         </div>
 
         <hr style="width: 70%;" class="mx-auto mt-4">
@@ -66,7 +66,7 @@
         </div>
 
         <!-- footer -->
-        <div class="container bg-dark p-5 mt-5 rounded shadow-sm" id="contact">
+        <div class="container bg-dark p-5 mt-5 rounded shadow-lg" id="contact">
 
             <div class="row">
 
@@ -88,7 +88,7 @@
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="" class="form-control form-control-sm" placeholder="Email" style="width: 250px; height: 50px;" name="email">
+                            <input type="email" class="form-control form-control-sm" placeholder="Email" style="width: 250px; height: 50px;" name="email">
                             <label for="email">Email</label>
                         </div>
 
@@ -97,7 +97,7 @@
                             
                         </div>
 
-                        <input type="submit" class="btn btn-outline-warning btn-sm">Sumbit</input>
+                        <input type="submit" class="btn btn-outline-warning btn-sm" value="Send">
 
                     </form>
 
@@ -129,7 +129,7 @@
 
                     <div class="mt-3">
                         <i class="fa fa-phone" style="color: gold;"></i>
-                        <span class="text-white ms-2" style="font-size: 12pt;">+233 203025772</span><br>
+                        <span class="text-white ms-2" style="font-size: 12pt;"><a href="tel:+233203025772" style="text-decoration: none; color: white">+233203025772</a></span><br>
 
                         <i class="fa fa-envelope" style="color: gold;"></i>
                         <span class="text-white ms-2"; style="font-size: 12px;">enochoppah2@gmail.com</span>
@@ -142,17 +142,12 @@
             <small class="text-warning d-block text-center">&copy;<span id="year"></span>, All right reserved</small>
 
         </div>
-        </div>
         <!-- end of footer -->
     </div>
     <!-- end of container -->
 
     <script>
-
-        let date = new Date();
-        year = date.getFullYear();
-        document.getElementById('year').innerHTML = year;
-
+        document.getElementById('year').textContent = new Date().getFullYear();
     </script>
     
 </body>

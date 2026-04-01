@@ -41,8 +41,7 @@
         $expires = date("Y-m-d H:i:s", strtotime("+1 hour"));
 
         // --- Save token into password_reset table ---
-        $stmt = $conn->prepare("INSERT INTO forget_password (id, token, expires_at) VALUES (?, ?, ?)
-                                ON DUPLICATE KEY UPDATE token=?, expires_at=?");
+        $stmt = $conn->prepare("INSERT INTO forget_password (id, token, expires_at) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE token= expires_at=?");
         $stmt->bind_param("sssss", $id, $token, $expires, $token, $expires);
         $stmt->execute();
         $stmt->close();
@@ -56,16 +55,14 @@
             $mail->isSMTP();
             $mail->Host       = 'smtp.gmail.com';
             $mail->SMTPAuth   = true;
-            $mail->Username   = 'enochoppah2@gmail.com'; // your Gmail
-            $mail->Password   = 'wyjj eqzb tsyp arar'; // your Gmail App Password
+            $mail->Username   = 'enochoppah2@gmail.com'; 
+            $mail->Password   = 'wyjj eqzb tsyp arar'; 
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port       = 587;
 
             // Recipients
             $mail->setFrom('noreply@liveelect.com', 'LiveElect Support');
             $mail->addAddress($email); // Send to user’s email
-
-            // Content
             $mail->isHTML(true);
             $mail->Subject = 'Password Reset Request';
             $mail->Body    = "

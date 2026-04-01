@@ -35,22 +35,21 @@
         }
 
         $mail = new PHPMailer(true);
-
         try {
             //Server settings
             $mail->isSMTP();
             $mail->Host       = 'smtp.gmail.com';
             $mail->SMTPAuth   = true;
-            $mail->Username   = 'enochoppah2@gmail.com'; // your email
-            $mail->Password   = 'wyjj eqzb tsyp arar'; // your email password
+            $mail->Username   = 'enochoppah2@gmail.com';
+            $mail->Password   = 'wyjj eqzb tsyp arar'; 
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port       = 587;
 
             //Recipients
             $mail->setFrom('test@test.com', 'LiveElect');
-            $mail->addAddress('enochoppah2@gmail.com'); // recipient email
+            $mail->addAddress('enochoppah2@gmail.com'); // my admin email
             $mail->isHTML(true);
-            $mail->Subject = 'New Message from Contact Form';
+            $mail->Subject = 'Message from LiveElect Contact Form';
             $mail->Body    = "Name: {$name}<br>Email: {$email}<br>Message: {$message}";
             
             if($mail->send()){

@@ -20,7 +20,6 @@
     if (!$stmt) {
         die("SQL Error: " . $conn->error);
     }
-
     $stmt->bind_param("s", $id);
     $stmt->execute();
     $stmt->bind_result($voter_id, $hashed_password);

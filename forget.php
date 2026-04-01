@@ -16,7 +16,6 @@
     <div class="container bg-white my-5 p-4 shadow-lg rounded">
 
         <!-- nav -->
-
         <nav class="navbar navbar-expand-sm mt-5">
             
             <div class="container-fluid">
@@ -35,46 +34,43 @@
                 </div>
             </div>
         </nav>
-    <!-- end of nav -->
+        <!-- end of nav -->
 
-    <!-- login container -->
+        <!-- login container -->
+        <div class="container" style="width: 70%;">
 
-    <div class="container" style="width: 70%;">
+            <div class="row">  
 
-        <div class="row">  
+                <div class="col p-2 shadow rounded" style="background-color: lightgray; height: 500px;">
+                    
+                    <div class="container d-block mx-auto" style="margin-top: 120px;">
 
-            <div class="col p-2 shadow rounded" style="background-color: lightgray; height: 500px;">
-                
-                <div class=" container d-block mx-auto" style="margin-top: 120px;">
+                        <h2 class="text-center mb-2" style="font-weight: bold; color: black;">Forget Password</h2>
 
-                    <h2 class="text-center mb-2" style="font-weight: bold; color: black;">Forget Password</h2>
+                        <!-- form -->
+                        <form action="forget_password.php" method="POST" class="mx-auto container" style="width: 60%;">
 
-                    <!-- form -->
+                            <div class="mb-3">
+                                <label for="id" class="form-label" style="font-weight: bold;">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+                            </div>
 
-                    <form action="forget_password.php" method="POST" class="mx-auto container" style="width: 60%;">
+                            <div class="mt-4">
+                            <input type="submit" value="Send" name="forgetpass" class="btn btn-danger btn-block d-block mx-auto" style="font-weight: bold; width: auto;"></input>
+                            </div>
 
-                        <div class="mb-3">
-                            <label for="id" class="form-label" style="font-weight: bold;">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
-                        </div>
+                        </form>
 
-                        <div class="mt-4">
-                        <input type="submit" value="Send" name="forgetpass" class="btn btn-danger btn-block d-block mx-auto" style="font-weight: bold; width: auto;"></input>
-                        </div>
+                        <!-- end of form -->
+                    
+                    </div>
 
-                    </form>
-
-                    <!-- end of form -->
-                 
                 </div>
 
             </div>
 
         </div>
-
-    </div>
-
-    <!-- end of login container -->
+        <!-- end of login container -->
       
     </div>
 
