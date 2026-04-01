@@ -1,9 +1,10 @@
 <?php
-    $conn = new mysqli('localhost', 'root', '', 'liveelect');
+$conn = new mysqli('localhost', 'root', '', 'liveelect');
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,7 +29,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse"               id="collapsibleNavbar">
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
 
                     <ul class="navbar-nav d-flex justify-content w-100">
                         <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
@@ -47,7 +48,7 @@
             <div id="votingStatus" class="text-center my-3"></div>
 
             <h3 id="totalVotesDisplay" class="text-center text-muted my-3 bg-info w-50 mx-auto p-2">
-            Total Votes Casted: 0
+                Total Votes Casted: 0
             </h3>
 
             <div id="charts" class="row g-4">
@@ -57,32 +58,32 @@
 
         <script>
             Chart.register(ChartDataLabels);
-            
+
             function loadAnalytics() {
-            fetch('get_analytics.php?mode=analytics')
-                .then(res => res.json())
-                .then(data => {
+                fetch('get_analytics.php?mode=analytics')
+                    .then(res => res.json())
+                    .then(data => {
 
-                // Show voting ended message
-                const statusDiv = document.getElementById('votingStatus');
-                if (data.votingEnded) {
-                statusDiv.innerHTML = `<div class="alert alert-danger fw-bold w-50 mx-auto">Voting has ended. Results are final.</div>`;
-                } else {
-                statusDiv.innerHTML = '';
-                }
+                        // Show voting ended message
+                        const statusDiv = document.getElementById('votingStatus');
+                        if (data.votingEnded) {
+                            statusDiv.innerHTML = `<div class="alert alert-danger fw-bold w-50 mx-auto">Voting has ended. Results are final.</div>`;
+                        } else {
+                            statusDiv.innerHTML = '';
+                        }
 
-                const container = document.getElementById('charts');
-                container.innerHTML = ''; // Clear old charts
+                        const container = document.getElementById('charts');
+                        container.innerHTML = ''; // Clear old charts
 
-                window.votingEnded = data.votingEnded; // track if voting has ended
+                        window.votingEnded = data.votingEnded; // track if voting has ended
 
-                Object.keys(data.positions).forEach(position => {
-                    const candidates = data.positions[position];
+                        Object.keys(data.positions).forEach(position => {
+                            const candidates = data.positions[position];
 
-                // Create card for each position
-                const card = document.createElement('div');
-                card.className = 'col-md-4';
-                card.innerHTML = `
+                            // Create card for each position
+                            const card = document.createElement('div');
+                            card.className = 'col-md-4';
+                            card.innerHTML = `
                 <div class="card shadow-sm">
                     <div class="card-body">
                         <h5 class="card-title text-center text-success mb-3">${position}</h5>
@@ -94,115 +95,123 @@
                     </div>
                 </div>
                     `;
-                container.appendChild(card);
+                            container.appendChild(card);
 
-                // Chart data
-                const labels = candidates.map(c => c.name);
-                const votes = candidates.map(c => c.votes);
-                const totalVotes = votes.reduce((a, b) => a + b, 0);
-                const percentages = votes.map(v => totalVotes ? ((v / totalVotes) * 100).toFixed(1) : 0);
+                            // Chart data
+                            const labels = candidates.map(c => c.name);
+                            const votes = candidates.map(c => c.votes);
+                            const totalVotes = votes.reduce((a, b) => a + b, 0);
+                            const percentages = votes.map(v => totalVotes ? ((v / totalVotes) * 100).toFixed(1) : 0);
 
-                // Colors for pie chart
-                const colors = [
-                'rgba(54, 162, 235, 0.6)',
-                'rgba(255, 99, 132, 0.6)',
-                'rgba(255, 206, 86, 0.6)',
-                'rgba(75, 192, 192, 0.6)',
-                'rgba(153, 102, 255, 0.6)'
-                ];
+                            // Colors for pie chart
+                            const colors = [
+                                'rgba(54, 162, 235, 0.6)',
+                                'rgba(255, 99, 132, 0.6)',
+                                'rgba(255, 206, 86, 0.6)',
+                                'rgba(75, 192, 192, 0.6)',
+                                'rgba(153, 102, 255, 0.6)'
+                            ];
 
-                // Create different colors for each candidate
-                const dynamicColors = candidates.map(() => {
-                const r = Math.floor(Math.random() * 255);
-                const g = Math.floor(Math.random() * 255);
-                const b = Math.floor(Math.random() * 255);
-                return `rgba(${r}, ${g}, ${b}, 0.7)`;
-                });
+                            // Create different colors for each candidate
+                            const dynamicColors = candidates.map(() => {
+                                const r = Math.floor(Math.random() * 255);
+                                const g = Math.floor(Math.random() * 255);
+                                const b = Math.floor(Math.random() * 255);
+                                return `rgba(${r}, ${g}, ${b}, 0.7)`;
+                            });
 
-                // Bar chart
-                new Chart(document.getElementById(`${position.replace(/\s+/g, '_')}BarChart`), {
-                type: 'bar',
-                data: {
-                    labels,
-                    datasets: [{
-                    label: 'Total Votes',
-                    data: votes,
-                    backgroundColor: dynamicColors,
-                    borderColor: dynamicColors.map(c => c.replace('0.7', '1')),
-                    borderWidth: 1
-                    }]
-                    },
+                            // Bar chart
+                            new Chart(document.getElementById(`${position.replace(/\s+/g, '_')}BarChart`), {
+                                type: 'bar',
+                                data: {
+                                    labels,
+                                    datasets: [{
+                                        label: 'Total Votes',
+                                        data: votes,
+                                        backgroundColor: dynamicColors,
+                                        borderColor: dynamicColors.map(c => c.replace('0.7', '1')),
+                                        borderWidth: 1
+                                    }]
+                                },
 
-                     options: {
-                      responsive: true,
-                      scales: {
-                        y: { beginAtZero: true }
-                      },
-                      plugins: {
-                        legend: {
-                          display: false
-                        },
-                        tooltip: { enabled: true },
-                        datalabels: {
-                          anchor: 'end',
-                          align: 'top',
-                          clamp: true,
-                          clip: false,
-                          font: {
-                            weight: 'bold',
-                            size: 12
-                        },
+                                options: {
+                                    responsive: true,
+                                    scales: {
+                                        y: {
+                                            beginAtZero: true
+                                        }
+                                    },
+                                    plugins: {
+                                        legend: {
+                                            display: false
+                                        },
+                                        tooltip: {
+                                            enabled: true
+                                        },
+                                        datalabels: {
+                                            anchor: 'end',
+                                            align: 'top',
+                                            clamp: true,
+                                            clip: false,
+                                            font: {
+                                                weight: 'bold',
+                                                size: 12
+                                            },
 
-                        formatter: function(value, context) {
-                        const dataset = context.chart.data.datasets[0].data;
-                        const sorted = [...dataset].sort((a, b) => b - a);
-                        const rank = sorted.indexOf(value) + 1;
-                        const suffix = rank === 1 ? '1st' : rank === 2 ? '2nd' : rank === 3 ? '3rd' : rank + 'th';
+                                            formatter: function(value, context) {
+                                                const dataset = context.chart.data.datasets[0].data;
+                                                const sorted = [...dataset].sort((a, b) => b - a);
+                                                const rank = sorted.indexOf(value) + 1;
+                                                const suffix = rank === 1 ? '1st' : rank === 2 ? '2nd' : rank === 3 ? '3rd' : rank + 'th';
 
-                        if (window.votingEnded) {
-                            return `${value} votes (${suffix})`;
-                        } else {
-                            return `${value} votes`;
-                        }
-                    },
+                                                if (window.votingEnded) {
+                                                    return `${value} votes (${suffix})`;
+                                                } else {
+                                                    return `${value} votes`;
+                                                }
+                                            },
 
-                    color: function(context) {
-                    if (!window.votingEnded) return '#000';
-                    const dataset = context.chart.data.datasets[0].data;
-                    const sorted = [...dataset].sort((a, b) => b - a);
-                    const rank = sorted.indexOf(context.dataset.data[context.dataIndex]) + 1;
+                                            color: function(context) {
+                                                if (!window.votingEnded) return '#000';
+                                                const dataset = context.chart.data.datasets[0].data;
+                                                const sorted = [...dataset].sort((a, b) => b - a);
+                                                const rank = sorted.indexOf(context.dataset.data[context.dataIndex]) + 1;
 
-                    // 🎨 color based on rank
-                    if (rank === 1) return 'gold';
-                    if (rank === 2) return 'silver';
-                    if (rank === 3) return '#cd7f32'; // bronze
-                    return '#000';
-                    },
+                                                // 🎨 color based on rank
+                                                if (rank === 1) return 'gold';
+                                                if (rank === 2) return 'silver';
+                                                if (rank === 3) return '#cd7f32'; // bronze
+                                                return '#000';
+                                            },
 
-                    }
-                      },
-                      layout: {
-                        padding: { top: 20 } 
-                      }
-                    }
+                                        }
+                                    },
+                                    layout: {
+                                        padding: {
+                                            top: 20
+                                        }
+                                    }
+                                }
 
-                    });
+                            });
 
-                    // Pie chart
-                    new Chart(document.getElementById(`${position.replace(/\s+/g, '_')}PieChart`), {
-                    type: 'pie',
-                    data: {
-                        labels: labels.map((name, i) => `${name} (${percentages[i]}%)`),
-                        datasets: [{
-                        data: votes,
-                        backgroundColor: colors.slice(0, candidates.length)
-                        }]
-                    },
-                    options: { responsive: true }
-                    });
-                });
-                })
-                .catch(err => console.error('Error loading analytics:', err));
+                            // Pie chart
+                            new Chart(document.getElementById(`${position.replace(/\s+/g, '_')}PieChart`), {
+                                type: 'pie',
+                                data: {
+                                    labels: labels.map((name, i) => `${name} (${percentages[i]}%)`),
+                                    datasets: [{
+                                        data: votes,
+                                        backgroundColor: colors.slice(0, candidates.length)
+                                    }]
+                                },
+                                options: {
+                                    responsive: true
+                                }
+                            });
+                        });
+                    })
+                    .catch(err => console.error('Error loading analytics:', err));
             }
 
             // Auto-refresh every 15 seconds
@@ -211,23 +220,23 @@
 
             // Load voting trend over time
             function loadTrends() {
-            fetch('get_analytics.php?mode=all')
-                .then(res => res.json())
-                .then(data => {
-                document.getElementById('totalVotesDisplay').textContent =`Total Votes Casted: ${data.overall_total}`;
+                fetch('get_analytics.php?mode=all')
+                    .then(res => res.json())
+                    .then(data => {
+                        document.getElementById('totalVotesDisplay').textContent = `Total Votes Casted: ${data.overall_total}`;
 
-                const trends = data.trends || [];
-                if (trends.length === 0) return;
+                        const trends = data.trends || [];
+                        if (trends.length === 0) return;
 
-                const labels = trends.map(row => row.time_slot);
-                const votes = trends.map(row => row.votes);
+                        const labels = trends.map(row => row.time_slot);
+                        const votes = trends.map(row => row.votes);
 
-                let trendSection = document.getElementById('trendChartContainer');
-                if (!trendSection) {
-                    const div = document.createElement('div');
-                    div.id = 'trendChartContainer';
-                    div.className = 'col-12 mt-5';
-                    div.innerHTML = `
+                        let trendSection = document.getElementById('trendChartContainer');
+                        if (!trendSection) {
+                            const div = document.createElement('div');
+                            div.id = 'trendChartContainer';
+                            div.className = 'col-12 mt-5';
+                            div.innerHTML = `
                     <div class="card shadow">
                         <div class="card-body">
                         <h5 class="card-title text-center text-info mb-3">🕒 Voting Trend Over Time</h5>
@@ -235,52 +244,65 @@
                         </div>
                     </div>
                     `;
-                    document.getElementById('charts').appendChild(div);
-                }
+                            document.getElementById('charts').appendChild(div);
+                        }
 
-                const ctx = document.getElementById('trendChart');
-                if (window.trendChartInstance) window.trendChartInstance.destroy();
+                        const ctx = document.getElementById('trendChart');
+                        if (window.trendChartInstance) window.trendChartInstance.destroy();
 
-                window.trendChartInstance = new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                    labels,
-                    datasets: [{
-                        label: 'Votes Cast',
-                        data: votes,
-                        fill: true,
-                        borderColor: 'rgba(75,192,192,1)',
-                        backgroundColor: 'rgba(75,192,192,0.2)',
-                        tension: 0.3,
-                        pointRadius: 3
-                    }]
-                    },
+                        window.trendChartInstance = new Chart(ctx, {
+                            type: 'line',
+                            data: {
+                                labels,
+                                datasets: [{
+                                    label: 'Votes Cast',
+                                    data: votes,
+                                    fill: true,
+                                    borderColor: 'rgba(75,192,192,1)',
+                                    backgroundColor: 'rgba(75,192,192,0.2)',
+                                    tension: 0.3,
+                                    pointRadius: 3
+                                }]
+                            },
 
-                    options: {
-                      responsive: true,
-                      plugins: {
-                        legend: { display: false },
-                        tooltip: { enabled: true }
-                      },
-                      scales: {
-                        y: { beginAtZero: true, title: { display: true, text: 'Votes' } },
-                        x: { title: { display: true, text: 'Time (HH:MM)' } }
-                      }
-                    }
-                    
-                });
-                })
-                .catch(err => console.error('Error loading trends:', err));
+                            options: {
+                                responsive: true,
+                                plugins: {
+                                    legend: {
+                                        display: false
+                                    },
+                                    tooltip: {
+                                        enabled: true
+                                    }
+                                },
+                                scales: {
+                                    y: {
+                                        beginAtZero: true,
+                                        title: {
+                                            display: true,
+                                            text: 'Votes'
+                                        }
+                                    },
+                                    x: {
+                                        title: {
+                                            display: true,
+                                            text: 'Time (HH:MM)'
+                                        }
+                                    }
+                                }
+                            }
+
+                        });
+                    })
+                    .catch(err => console.error('Error loading trends:', err));
             }
 
             // Auto-refresh every 15 seconds
             setInterval(loadTrends, 15000);
             loadTrends();
-
-            
-
         </script>
 
-    </div>     
+    </div>
 </body>
+
 </html>

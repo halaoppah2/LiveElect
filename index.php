@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,9 +20,9 @@
         <nav class="navbar navbar-expand-sm mt-5">
             <div class="container-fluid">
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
 
@@ -52,7 +53,7 @@
 
                 <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active">
                 </button>
-                
+
                 <button type="button" data-bs-target="#demo" data-bs-slide-to="1">
                 </button>
 
@@ -72,9 +73,9 @@
                         <div class="carousel-caption text-dark">
 
                             <div class="caption">
-                                <p><b>LiveElect - Empowering institutions 
-                                    with <br> secure, transparent, and real-time
-                                    voting.</b></p>
+                                <p><b>LiveElect - Empowering institutions
+                                        with <br> secure, transparent, and real-time
+                                        voting.</b></p>
                                 <p>“Easily cast your votes in Ghana’s institutional <br> elections. Trusted by leading organizations for <br> secure, reliable, and transparent voting.”</p>
                             </div>
 
@@ -127,13 +128,13 @@
         </div>
         <!-- end of carousel -->
 
-       <div class="text-center mt-4">
+        <div class="text-center mt-4">
             <p class="h4">Ghana’s Most Advanced Institutional Voting Platform</p>
             <p>Discover why schools and organizations trust LiveElect
-            for secure, transparent, and real-time elections.</p>
-       </div>
+                for secure, transparent, and real-time elections.</p>
+        </div>
 
-       <hr style="width: 50%; margin: auto;">
+        <hr style="width: 50%; margin: auto;">
 
         <!-- cards -->
 
@@ -147,38 +148,38 @@
                         <i class="fa-solid fa-rocket"></i>
                         <b>Quick Launch</b>
                     </div>
-                        <div class="card-body">
-                            <p class="card-text">Launch your institutional elections in minutes with our easy-to-use setup process.</p>
-                        </div>    
+                    <div class="card-body">
+                        <p class="card-text">Launch your institutional elections in minutes with our easy-to-use setup process.</p>
+                    </div>
                 </div>
             </div>
 
             <!-- second card -->
-             <div class="col d-flex justify-content-center">
+            <div class="col d-flex justify-content-center">
                 <div class="card shadow-sm" style="max-width: 18rem; border: none;">
                     <div class="card-header">
                         <i class="fa-solid fa-globe"></i>
                         <b>Wide Reach</b>
                     </div>
-                        <div class="card-body">
-                            <p class="card-text">Enable participation across Ghana with mobile and web access. Designed for both urban and rural users.</p>
-                        </div>    
+                    <div class="card-body">
+                        <p class="card-text">Enable participation across Ghana with mobile and web access. Designed for both urban and rural users.</p>
+                    </div>
                 </div>
             </div>
 
-                <!-- third card -->
-             <div class="col d-flex justify-content-center">
+            <!-- third card -->
+            <div class="col d-flex justify-content-center">
                 <div class="card shadow-sm" style="max-width: 18rem; border: none;">
                     <div class="card-header">
                         <i class="fa-solid fa-thumbs-up"></i>
                         <b>Effortless Voting</b>
                     </div>
-                        <div class="card-body">
-                            <p class="card-text">A secure and intuitive 
+                    <div class="card-body">
+                        <p class="card-text">A secure and intuitive
                             platform built for student unions, professional bodies, and organizational elections.</p>
-                        </div>    
-                </div> 
-             </div>               
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- second row of cards -->
@@ -234,7 +235,7 @@
                 <div class="col-sm-4">
 
                     <p class="text-warning">Send us a message</p>
-                    
+
                     <form action="form.php" method="POST" name="myForm">
 
                         <input type="hidden" name="source" value="index">
@@ -260,7 +261,7 @@
                 </div>
 
                 <div class="col-sm-4">
-                     
+
                     <div class="text-light mb-2">
                         <span>Quik Links</span>
                     </div>
@@ -285,10 +286,10 @@
                         <span class="text-white ms-2" style="font-size: 12pt;"><a href="tel:+233203025772" style="text-decoration:  none; color: white">+233203025772</a></span><br>
 
                         <i class="fa fa-envelope" style="color: gold;"></i>
-                        <span class="text-white ms-2"; style="font-size: 12px;">enochoppah2@gmail.com</span>
+                        <span class="text-white ms-2" ; style="font-size: 12px;">enochoppah2@gmail.com</span>
                     </div>
                 </div>
-            </div> 
+            </div>
 
             <small class="text-warning d-block text-center mt-4">&copy;<span id="year"></span>, All right reserved</small>
 
@@ -298,11 +299,12 @@
     </div>
 
     <!-- end of container -->
-    
+
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 
 
 </body>
+
 </html>

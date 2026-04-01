@@ -1,27 +1,30 @@
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
-  background-color: #e9f1fa;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cpath d='M0 20 C40 10 60 30 100 20 V100 H0 Z' fill='%23d0e6f9'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-size: cover;
+    background-color: #e9f1fa;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cpath d='M0 20 C40 10 60 30 100 20 V100 H0 Z' fill='%23d0e6f9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .navbar-brand img {
     width: 180px;
-    margin: -40px 0 0 50px; /* top right bottom left */
+    margin: -40px 0 0 50px;
+    /* top right bottom left */
 }
 
-.navbar-nav, .nav-items{
-   font-size: 14pt;
-   gap: 10px;
-   display: flex;
-   justify-content: center; 
-   margin-top: -70px;
+.navbar-nav,
+.nav-items {
+    font-size: 14pt;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    margin-top: -70px;
 }
 
 
@@ -34,14 +37,14 @@ body {
     transition: all 0.6s;
 }
 
-.caption{
+.caption {
     margin: -250px auto auto -60px;
     text-align: left;
     font-size: 14pt;
 }
 
-.card-body{
-      background: rgb(228, 226, 226)
+.card-body {
+    background: rgb(228, 226, 226)
 }
 
 
@@ -49,11 +52,12 @@ body {
 
     .navbar {
         background: #fff;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         z-index: 1030;
     }
 
-    .navbar-nav, .nav-items {
+    .navbar-nav,
+    .nav-items {
         font-size: 12pt;
         margin-left: 0;
         flex-direction: column;
@@ -97,17 +101,17 @@ body {
         top: 40px;
     }
 
-    .caption p{
+    .caption p {
         line-height: 1.2;
         font-size: 10px;
         gap: 2px;
     }
 
-    .card{
+    .card {
         margin-bottom: 10px;
     }
 
-    .row{
+    .row {
         row-gap: 8px;
     }
 

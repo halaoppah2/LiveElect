@@ -1,15 +1,16 @@
 <?php
 
-    $voting_open = true; // Change to false if voting is closed
+$voting_open = true; // Change to false if voting is closed
 
-    if (!$voting_open) {
-        echo "<script>alert('Voting is closed.'); window.location.href='index.php';</script>";
-        exit;
-    }
+if (!$voting_open) {
+    echo "<script>alert('Voting is closed.'); window.location.href='index.php';</script>";
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,14 +28,14 @@
 
         <!-- nav -->
         <nav class="navbar navbar-expand-sm mt-5">
-            
+
             <div class="container-fluid">
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                <div class="collapse navbar-collapse"               id="collapsibleNavbar">
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
 
                     <ul class="navbar-nav d-flex justify-content w-100">
                         <li class="nav-item"><a href="index.php" class="nav-link ">Home</a></li>
@@ -56,13 +57,13 @@
 
                     <div>
 
-                        <div class="d-block mx-auto" >
+                        <div class="d-block mx-auto">
                             <img src="images/logo.png" alt="logo" width="200" class="img-fluid d-block mx-auto">
 
                             <div class="shadow" style="background-color: white; height: 30px; width: 220px; margin: -15px auto; border-radius: 0 0 10px 10px"></div>
                         </div>
 
-                        <div class="text-center mt-3"           style="font-size: 60pt; line-height: 1.0; font-weight:bold">
+                        <div class="text-center mt-3" style="font-size: 60pt; line-height: 1.0; font-weight:bold">
                             <p>LIVE<br>ELECT</p>
                         </div>
 
@@ -71,7 +72,7 @@
                 </div>
 
                 <div class="col-sm-8 p-4" style="background-color: lightgray;">
-                    
+
                     <div class="d-block mx-auto">
 
                         <h2 class="text-center mb-4" style="font-weight: bold; color: black;">Login</h2>
@@ -110,4 +111,5 @@
     </div>
     <!-- end of container -->
 </body>
+
 </html>

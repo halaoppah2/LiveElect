@@ -1,36 +1,37 @@
 <?php
-    session_start();
+session_start();
 
-    $conn = new mysqli('localhost', 'root', '', 'liveelect');
+$conn = new mysqli('localhost', 'root', '', 'liveelect');
 
-    if ($conn->connect_error) {
-        die("Connection Failed: " . $conn->connect_error);
+if ($conn->connect_error) {
+    die("Connection Failed: " . $conn->connect_error);
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = trim($_POST['username'] ?? '');
+    $password = trim($_POST['password'] ?? '');
+
+    $stmt = $conn->prepare("SELECT passwd FROM admin WHERE username = ?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $stmt->bind_result($hashed_password);
+    $stmt->fetch();
+    $stmt->close();
+
+    if ($hashed_password && password_verify($password, $hashed_password)) {
+        $_SESSION['admin_logged_in'] = true;
+        $_SESSION['admin_username'] = $username;
+        header("Location: set_voting_time.php");
+        exit();
+    } else {
+        echo "<script>alert('Invalid admin credentials'); window.history.back();</script>";
     }
-
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $username = trim($_POST['username'] ?? '');
-        $password = trim($_POST['password'] ?? '');
-
-        $stmt = $conn->prepare("SELECT passwd FROM admin WHERE username = ?");
-        $stmt->bind_param("s", $username);
-        $stmt->execute();
-        $stmt->bind_result($hashed_password);
-        $stmt->fetch();
-        $stmt->close();
-
-        if ($hashed_password && password_verify($password, $hashed_password)) {
-            $_SESSION['admin_logged_in'] = true;
-            $_SESSION['admin_username'] = $username;
-            header("Location: set_voting_time.php");
-            exit();
-        } else {
-            echo "<script>alert('Invalid admin credentials'); window.history.back();</script>";
-        }
-    }
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,4 +61,5 @@
         </form>
     </div>
 </body>
+
 </html>

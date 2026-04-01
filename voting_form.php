@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,14 +20,14 @@
 
         <!-- nav -->
         <nav class="navbar navbar-expand-sm mt-5">
-            
+
             <div class="container-fluid">
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                <div class="collapse navbar-collapse"               id="collapsibleNavbar">
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
 
                     <ul class="navbar-nav d-flex justify-content w-100">
                         <li class="nav-item"><a href="index.php" class="nav-link ">Home</a></li>
@@ -45,14 +46,14 @@
             <div class="container">
 
                 <h2 class="text-center mb-4" style="font-weight: bold; color: black;">Aspirants Dashboard</h2>
-                
+
             </div>
 
             <hr style="width: 70%;" class="mx-auto mt-4 mb-4">
 
         </div>
-         <!-- end of voting_form container -->
-        
+        <!-- end of voting_form container -->
+
         <div class="container" style="width: 85%;">
             <!-- first row -->
             <div class="row">
@@ -60,55 +61,55 @@
                 <div class="text-center">
                     <h4 class="fw-bold text-danger">President</h4>
                 </div>
-            
-            <!-- first card -->
-            <div class="col-sm-4 mb-3 mb-sm-0">
 
-                <div class="card shadow" style="width: 18rem;">
+                <!-- first card -->
+                <div class="col-sm-4 mb-3 mb-sm-0">
 
-                    <img src="images/man.png" class="card-img-top" alt="bradley">
+                    <div class="card shadow" style="width: 18rem;">
 
-                    <div class="card-body text-center">
-                        <p class="card-text" style="font-weight: bold; font-size: 14pt;">Bradley Yawson</p>
+                        <img src="images/man.png" class="card-img-top" alt="bradley">
 
+                        <div class="card-body text-center">
+                            <p class="card-text" style="font-weight: bold; font-size: 14pt;">Bradley Yawson</p>
+
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- second card -->
-            <div class="col-sm-4 mb-3 mb-sm-0">
+                <!-- second card -->
+                <div class="col-sm-4 mb-3 mb-sm-0">
 
-                <div class="card shadow" style="width: 18rem;">
+                    <div class="card shadow" style="width: 18rem;">
 
-                    <img src="images/woman.png" class="card-img-top" alt="pearl">
+                        <img src="images/woman.png" class="card-img-top" alt="pearl">
 
-                    <div class="card-body text-center">
-                        <p class="card-text" style="font-weight: bold; font-size: 14pt">Pearl Owusuaa</p>
+                        <div class="card-body text-center">
+                            <p class="card-text" style="font-weight: bold; font-size: 14pt">Pearl Owusuaa</p>
 
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- third card -->
-            <div class="col-sm-4 mb-3 mb-sm-0">
+                <!-- third card -->
+                <div class="col-sm-4 mb-3 mb-sm-0">
 
-                <div class="card shadow" style="width: 18rem;">
+                    <div class="card shadow" style="width: 18rem;">
 
-                    <img src="images/woman.png" class="card-img-top" alt="alexia">
+                        <img src="images/woman.png" class="card-img-top" alt="alexia">
 
-                    <div class="card-body text-center">
-                        <p class="card-text" style="font-weight: bold; font-size: 14pt;">Alexia Mensah</p>
+                        <div class="card-body text-center">
+                            <p class="card-text" style="font-weight: bold; font-size: 14pt;">Alexia Mensah</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
             </div>
         </div>
         <!-- end of first row  -->
 
-            <div class="text-center mt-4 mb-4">
-                <h4 class="fw-bold text-danger">Treasurer</h4>
-            </div>
+        <div class="text-center mt-4 mb-4">
+            <h4 class="fw-bold text-danger">Treasurer</h4>
+        </div>
 
         <!-- seccond row -->
         <div class="container mt-4" style="width: 85%;">
@@ -154,10 +155,10 @@
 
         </div>
         <!-- end of seccond row  -->
-         
-            <div class="text-center mt-4 mb-4">
-                <h4 class="fw-bold text-danger">Secretary</h4>
-            </div>
+
+        <div class="text-center mt-4 mb-4">
+            <h4 class="fw-bold text-danger">Secretary</h4>
+        </div>
 
         <!-- third row -->
         <div class="container mt-4" style="width: 85%;">
@@ -190,11 +191,12 @@
 
         </div>
 
-    <!-- end of voting_form container -->
-      
+        <!-- end of voting_form container -->
+
     </div>
 
     <!-- end of container -->
-    
+
 </body>
+
 </html>

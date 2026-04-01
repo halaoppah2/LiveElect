@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,14 +19,14 @@
         <!-- nav -->
 
         <nav class="navbar navbar-expand-sm mt-5">
-            
+
             <div class="container-fluid">
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                <div class="collapse navbar-collapse"               id="collapsibleNavbar">
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
 
                     <ul class="navbar-nav d-flex justify-content w-100">
                         <li class="nav-item"><a href="index.php" class="nav-link ">Home</a></li>
@@ -47,7 +48,7 @@
                 <!-- first column -->
 
                 <div class="col-sm-8 p-4" style="background-color: lightgray;">
-                    
+
                     <div class="d-block mx-auto">
 
                         <h2 class="text-center mb-4" style="font-weight: bold; color: black;">Signup</h2>
@@ -81,12 +82,12 @@
                             <div class="d-flex mt-5">
                                 <p class="mb-1">Already have an account?</p>
 
-                            <a href="login.php"> <input type="button" value="Login" name="signup" class="btn btn-warning ms-1 btn-block" style="font-weight: bold;"></input></a>
+                                <a href="login.php"> <input type="button" value="Login" name="signup" class="btn btn-warning ms-1 btn-block" style="font-weight: bold;"></input></a>
                             </div>
 
                         </form>
                         <!-- end of form -->
-                    
+
                     </div>
 
                 </div>
@@ -98,7 +99,7 @@
 
                     <div>
 
-                        <div class="d-block mx-auto" >
+                        <div class="d-block mx-auto">
 
                             <img src="images/logo.png" alt="logo" width="200" class="img-fluid d-block mx-auto">
 
@@ -106,9 +107,9 @@
 
                         </div>
 
-                            <div class="text-center mt-3" style="font-size: 60pt; line-height: 1.0; font-weight:bold">
-                                <p>LIVE<br>ELECT</p>
-                            </div>
+                        <div class="text-center mt-3" style="font-size: 60pt; line-height: 1.0; font-weight:bold">
+                            <p>LIVE<br>ELECT</p>
+                        </div>
 
                         <i class="fa-solid fa-check-to-slot" style="color: white; font-size: 80pt; display: flex; justify-content: center;"></i>
 
@@ -121,10 +122,11 @@
         </div>
 
         <!-- end of signup container -->
-        
-        </div>
+
+    </div>
 
     <!-- end of container -->
-    
+
 </body>
+
 </html>

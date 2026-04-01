@@ -63,4 +63,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo "<script>alert('Password reset successful. Please login.'); window.location.href='login.php';</script>";
     exit;
 }
-?>

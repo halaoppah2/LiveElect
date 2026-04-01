@@ -1,47 +1,50 @@
 <?php
-    date_default_timezone_set('Africa/Accra');
-    session_start();
+date_default_timezone_set('Africa/Accra');
+session_start();
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['selectedCandidate'])) {
-        $_SESSION['secretary_vote'] = $_POST['selectedCandidate'];
-        header("Location: preview.php");
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['selectedCandidate'])) {
+    $_SESSION['secretary_vote'] = $_POST['selectedCandidate'];
+    header("Location: preview.php");
+    exit();
+}
+
+$selectedCandidate = isset($_SESSION['president_vote']) ? $_SESSION['president_vote'] : '';
+
+$conn = new mysqli('localhost', 'root', '', 'liveelect');
+if ($conn->connect_error) {
+    die("Connection Failed: " . $conn->connect_error);
+}
+
+// Fetch voting times
+$result = $conn->query("SELECT start_time, end_time FROM voting_schedule LIMIT 1");
+if ($result && $row = $result->fetch_assoc()) {
+    $start_time = $row['start_time'];
+    $end_time = $row['end_time'];
+    $current_time = date('Y-m-d H:i:s');
+
+    //countdown time
+    if (strtotime($current_time) < strtotime($start_time)) {
+        $status = 'upcoming';
+    } elseif (strtotime($current_time) > strtotime($end_time)) {
+        $status = 'ended';
+    } else {
+        $status = 'active';
+    }
+
+    //prevent/allow user to login based on the time set
+    if ($current_time < $start_time) {
+        echo "<script>alert('Voting has not started yet. Please check back later.'); window.location.href='login.php';</script>";
+        exit();
+    } elseif ($current_time > $end_time) {
+        echo "<script>alert('Voting has ended. Thank you.'); window.location.href='login.php';</script>";
         exit();
     }
-
-    $selectedCandidate = isset($_SESSION['president_vote']) ? $_SESSION['president_vote'] : '';
-
-    $conn = new mysqli('localhost', 'root', '', 'liveelect');
-    if ($conn->connect_error) {
-        die("Connection Failed: " . $conn->connect_error);
-    }
-
-    // Fetch voting times
-    $result = $conn->query("SELECT start_time, end_time FROM voting_schedule LIMIT 1");
-    if ($result && $row = $result->fetch_assoc()) {
-        $start_time = $row['start_time'];
-        $end_time = $row['end_time'];
-        $current_time = date('Y-m-d H:i:s');
-        
-        //countdown time
-        if (strtotime($current_time) < strtotime($start_time)) {
-            $status = 'upcoming';
-        } elseif (strtotime($current_time) > strtotime($end_time)) {
-            $status = 'ended';
-        } else {
-            $status = 'active';
-        }
-
-        //prevent/allow user to login based on the time set
-        if ($current_time < $start_time) { 
-            echo "<script>alert('Voting has not started yet. Please check back later.'); window.location.href='login.php';</script>"; exit();
-        } elseif ($current_time > $end_time) { 
-            echo "<script>alert('Voting has ended. Thank you.'); window.location.href='login.php';</script>"; exit(); 
-        }
-    }
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,14 +62,14 @@
 
         <!-- nav -->
         <nav class="navbar navbar-expand-sm mt-5">
-            
+
             <div class="container-fluid">
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                <div class="collapse navbar-collapse"               id="collapsibleNavbar">
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
 
                     <ul class="navbar-nav d-flex justify-content w-100">
                         <li class="nav-item"><a href="index.php" class="nav-link ">Home</a></li>
@@ -79,7 +82,7 @@
         </nav>
         <!-- end of nav -->
 
-        
+
         <!-- countdown -->
         <div id="timer-container" style="text-align:center; margin:20px;">
             <h5 class="text-warning bg-primary p-2 rounded w-50 mx-auto d-flex justify-content-center align-items-center" id="voting-status">
@@ -102,21 +105,21 @@
                 let targetTime, message;
 
                 if (status === "upcoming") {
-                targetTime = startTime;
-                message = "Voting starts in: ";
+                    targetTime = startTime;
+                    message = "Voting starts in: ";
                 } else if (status === "active") {
-                targetTime = endTime;
-                message = "Voting ends in: ";
+                    targetTime = endTime;
+                    message = "Voting ends in: ";
                 } else {
-                document.getElementById("countdown").innerHTML = "Voting period is over.";
-                return;
+                    document.getElementById("countdown").innerHTML = "Voting period is over.";
+                    return;
                 }
 
                 const distance = targetTime - now;
 
                 if (distance <= 0) {
-                location.reload(); // refresh when countdown hits 0
-                return;
+                    location.reload(); // refresh when countdown hits 0
+                    return;
                 }
 
                 const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -124,7 +127,7 @@
                 const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
                 document.getElementById("countdown").innerHTML =
-                message + hours + "h " + minutes + "m " + seconds + "s ";
+                    message + hours + "h " + minutes + "m " + seconds + "s ";
             }
 
             setInterval(updateTimer, 1000);
@@ -138,7 +141,7 @@
         <!-- first candidate -->
         <div class="container my-5">
             <div class="row align-items-center">
-                
+
                 <!-- Candidate Card -->
                 <div class="col-sm-6">
                     <div class="card shadow" style="width: 16rem; margin: auto;">
@@ -151,7 +154,7 @@
 
                 <!-- Vote Button -->
                 <?php
-                    echo '
+                echo '
                     <div class="col-sm-6 text-center">
                         <button type="button" class="btn btn-primary btn-lg vote-btn" onclick="toggleVote(this, 7)">Vote</button>
                     </div>';
@@ -164,7 +167,7 @@
         <!-- second candidate -->
         <div class="container my-5">
             <div class="row align-items-center">
-                
+
                 <!-- Candidate Card -->
                 <div class="col-sm-6">
                     <div class="card shadow" style="width: 16rem; margin: auto;">
@@ -177,7 +180,7 @@
 
                 <!-- Vote Button -->
                 <?php
-                    echo '
+                echo '
                     <div class="col-sm-6 text-center">
                         <button type="button" class="btn btn-primary btn-lg vote-btn" onclick="toggleVote(this, 8)">Vote</button>
                     </div>';
@@ -189,7 +192,7 @@
 
         <!-- end of voting container -->
 
-         <!-- Hidden field just to keep track -->
+        <!-- Hidden field just to keep track -->
         <input type="hidden" id="selectedCandidate">
 
         <!-- navigation buttons -->
@@ -209,7 +212,7 @@
         </div>
 
         <?php
-            echo '
+        echo '
             <script>
                 function toggleVote(clickedButton, candidateID) {
                     // Reset all buttons
@@ -247,4 +250,5 @@
     <!-- end of container -->
 
 </body>
+
 </html>

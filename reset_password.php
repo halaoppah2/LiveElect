@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,14 +19,14 @@
         <!-- nav -->
 
         <nav class="navbar navbar-expand-sm mt-5">
-            
+
             <div class="container-fluid">
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                <div class="collapse navbar-collapse"               id="collapsibleNavbar">
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
 
                     <ul class="navbar-nav d-flex justify-content w-100">
                         <li class="nav-item"><a href="index.php" class="nav-link ">Home</a></li>
@@ -35,58 +36,59 @@
                 </div>
             </div>
         </nav>
-    <!-- end of nav -->
+        <!-- end of nav -->
 
-    <!-- login container -->
+        <!-- login container -->
 
-    <div class="container" style="width: 70%;">
+        <div class="container" style="width: 70%;">
 
-        <div class="row">  
+            <div class="row">
 
-            <div class="col p-2 shadow rounded" style="background-color: lightgray; height: 450px;">
-                
-                <div class="d-block mx-auto" style="margin-top: 60px;">
+                <div class="col p-2 shadow rounded" style="background-color: lightgray; height: 450px;">
 
-                    <h2 class="text-center mb-2" style="font-weight: bold; color: black;">Reset Password</h2>
+                    <div class="d-block mx-auto" style="margin-top: 60px;">
 
-                    <!-- form -->
+                        <h2 class="text-center mb-2" style="font-weight: bold; color: black;">Reset Password</h2>
 
-                    <form action="password_reset.php" method="POST" class="mx-auto" style="width: 60%;">
+                        <!-- form -->
 
-                        <input type="hidden" name="token" value="<?php echo htmlspecialchars($_GET['token'] ?? ''); ?>">
+                        <form action="password_reset.php" method="POST" class="mx-auto" style="width: 60%;">
 
-                        <div class="mb-3">
-                            <label for="password" class="form-label" style="font-weight: bold;">New Password</label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
-                        </div>
+                            <input type="hidden" name="token" value="<?php echo htmlspecialchars($_GET['token'] ?? ''); ?>">
 
-                        <div class="mb-3">
-                            <label for="confirm_password" class="form-label" style="font-weight: bold;">Confirm Password</label>
-                            <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Re-enter password">
-                        </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label" style="font-weight: bold;">New Password</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="confirm_password" class="form-label" style="font-weight: bold;">Confirm Password</label>
+                                <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Re-enter password">
+                            </div>
 
 
-                        <div class="mt-4">
-                        <input type="submit" value="Reset" name="forgetpass" class="btn btn-danger btn-block d-block mx-auto" style="font-weight: bold; width: 250px;"></input>
-                        </div>
+                            <div class="mt-4">
+                                <input type="submit" value="Reset" name="forgetpass" class="btn btn-danger btn-block d-block mx-auto" style="font-weight: bold; width: 250px;"></input>
+                            </div>
 
-                    </form>
+                        </form>
 
-                    <!-- end of form -->
-                 
+                        <!-- end of form -->
+
+                    </div>
+
                 </div>
 
             </div>
 
         </div>
 
-    </div>
+        <!-- end of login container -->
 
-    <!-- end of login container -->
-      
     </div>
 
     <!-- end of container -->
-    
+
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,11 +20,11 @@
         <nav class="navbar navbar-expand-sm mt-5">
             <div class="container-fluid">
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                <div class="collapse navbar-collapse"               id="collapsibleNavbar">
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
 
                     <a href="#" class="navbar-brand">
                         <img src="images/logo.png" alt="logo" width="150px">
@@ -57,12 +58,12 @@
 
             <p><b>Our Vision</b><br>
                 To become Ghana’s leading institutional e-voting solution, setting the standard for integrity, efficiency, and innovation in digital democracy.</p>
-                
+
             <p><b>What Makes Us Unique</b><br>
                 Unlike traditional voting methods and other e-voting systems, LiveElect integrates real-time analytics, enabling administrators and voters to track participation and results instantly. This transparency builds trust, strengthens accountability, and ensures that every vote is counted.</p>
 
             <p>With LiveElect, you don’t just vote, you experience democracy in action.</p>
-            
+
         </div>
 
         <!-- footer -->
@@ -77,7 +78,7 @@
                     </div>
 
                     <!-- footer form -->
-                    
+
                     <form action="form.php" method="POST" name="myForm">
 
                         <input type="hidden" name="source" value="about_us">
@@ -94,7 +95,7 @@
 
                         <div class="form-floating mb-3">
                             <textarea name="message" id="" cols="30" rows="6" placeholder="Message, not more than 100 characters" style="padding: 5px;"></textarea>
-                            
+
                         </div>
 
                         <input type="submit" class="btn btn-outline-warning btn-sm" value="Send">
@@ -106,7 +107,7 @@
                 </div>
 
                 <div class="col ms-5">
-                     
+
                     <div class="text-light mb-4">
                         <span>Quik Links</span>
                     </div>
@@ -132,12 +133,12 @@
                         <span class="text-white ms-2" style="font-size: 12pt;"><a href="tel:+233203025772" style="text-decoration: none; color: white">+233203025772</a></span><br>
 
                         <i class="fa fa-envelope" style="color: gold;"></i>
-                        <span class="text-white ms-2"; style="font-size: 12px;">enochoppah2@gmail.com</span>
+                        <span class="text-white ms-2" ; style="font-size: 12px;">enochoppah2@gmail.com</span>
                     </div>
 
                 </div>
 
-            </div> 
+            </div>
 
             <small class="text-warning d-block text-center">&copy;<span id="year"></span>, All right reserved</small>
 
@@ -149,6 +150,7 @@
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
-    
+
 </body>
+
 </html>

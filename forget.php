@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,14 +18,14 @@
 
         <!-- nav -->
         <nav class="navbar navbar-expand-sm mt-5">
-            
+
             <div class="container-fluid">
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                <div class="collapse navbar-collapse"               id="collapsibleNavbar">
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
 
                     <ul class="navbar-nav d-flex justify-content w-100">
                         <li class="nav-item"><a href="index.php" class="nav-link ">Home</a></li>
@@ -39,10 +40,10 @@
         <!-- login container -->
         <div class="container" style="width: 70%;">
 
-            <div class="row">  
+            <div class="row">
 
                 <div class="col p-2 shadow rounded" style="background-color: lightgray; height: 500px;">
-                    
+
                     <div class="container d-block mx-auto" style="margin-top: 120px;">
 
                         <h2 class="text-center mb-2" style="font-weight: bold; color: black;">Forget Password</h2>
@@ -56,13 +57,13 @@
                             </div>
 
                             <div class="mt-4">
-                            <input type="submit" value="Send" name="forgetpass" class="btn btn-danger btn-block d-block mx-auto" style="font-weight: bold; width: auto;"></input>
+                                <input type="submit" value="Send" name="forgetpass" class="btn btn-danger btn-block d-block mx-auto" style="font-weight: bold; width: auto;"></input>
                             </div>
 
                         </form>
 
                         <!-- end of form -->
-                    
+
                     </div>
 
                 </div>
@@ -71,10 +72,11 @@
 
         </div>
         <!-- end of login container -->
-      
+
     </div>
 
     <!-- end of container -->
-    
+
 </body>
+
 </html>

@@ -1,11 +1,11 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = trim ($_POST['email'] ??  '');
-    $id = trim ($_POST['id'] ??  '');
-    $password = trim ($_POST['password'] ??  '');
-    $confirm_password = trim ($_POST['con_password'] ??  '');
+    $email = trim($_POST['email'] ??  '');
+    $id = trim($_POST['id'] ??  '');
+    $password = trim($_POST['password'] ??  '');
+    $confirm_password = trim($_POST['con_password'] ??  '');
 
-     // form validation
+    // form validation
     if (empty($email) || empty($id) || empty($password) || empty($confirm_password)) {
         echo "<script>alert('All fields are required.'); window.history.back();</script>";
         exit;
@@ -56,16 +56,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Check pre-populated table for existing id
-//     $stmt = $conn->prepare("SELECT * FROM users WHERE id = ?");
-//     $stmt->bind_param("s", $id);
-//     $stmt->execute();
-//     $result = $stmt->get_result();
-//     $stmt->close();
+    //     $stmt = $conn->prepare("SELECT * FROM users WHERE id = ?");
+    //     $stmt->bind_param("s", $id);
+    //     $stmt->execute();
+    //     $result = $stmt->get_result();
+    //     $stmt->close();
 
-//    if ($result->num_rows === 0) {
-//     echo "<script>alert('Invalid ID or ID does not exist.'); window.history. back();</script>";
-//     exit;
-//     }
+    //    if ($result->num_rows === 0) {
+    //     echo "<script>alert('Invalid ID or ID does not exist.'); window.history. back();</script>";
+    //     exit;
+    //     }
 
     // Hash the password
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
@@ -81,4 +81,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->close();
     $conn->close();
 }
-?>
